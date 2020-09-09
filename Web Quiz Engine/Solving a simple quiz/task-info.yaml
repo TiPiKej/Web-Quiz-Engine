@@ -135,6 +135,13 @@ files:
 - name: src/engine/Questions.json
   visible: true
   learner_created: true
+- name: src/engine/AnswerRes.java
+  visible: true
+  learner_created: true
 feedback_link: https://hyperskill.org/projects/91/stages/504/implement
-status: Failed
+status: Solved
+feedback:
+  message: Congratulations! Continue on <a href="https://hyperskill.org/projects/91/stages/504/implement">JetBrains
+    Academy</a>
+  time: Wed, 09 Sep 2020 09:33:58 UTC
 record: -1
