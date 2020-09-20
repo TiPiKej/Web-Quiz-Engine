@@ -1,18 +1,26 @@
 package engine;
 
 public class Question {
+    private int id;
     private String title;
     private String text;
     private String[] options;
+    private int answer;
 
     public Question() {
 
     }
 
-    public Question(String title, String text, String[] options) {
+    public Question(String title, String text, String[] options, int answer) {
+        this.id = id;
         this.title = title;
         this.text = text;
         this.options = options;
+        this.answer = answer;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public void setTitle(String title) {
@@ -27,6 +35,10 @@ public class Question {
         this.options = options;
     }
 
+    public int getId() {
+        return id;
+    }
+
     public String[] getOptions() {
         return options;
     }
@@ -38,4 +50,9 @@ public class Question {
     public String getText() {
         return text;
     }
+
+    public boolean ifGuessed(int answer) {
+        return this.answer == answer;
+    }
 }
+
