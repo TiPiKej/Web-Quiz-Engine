@@ -1,7 +1,5 @@
 package engine;
 
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.core.io.Resource;
 import org.springframework.http.HttpStatus;
 import org.springframework.util.ResourceUtils;
 import org.springframework.web.bind.annotation.*;
@@ -112,11 +110,14 @@ public class Quiz {
     @GetMapping(path = "/api/quizzes/{id}")
     public Question getQuestion(@PathVariable int id) {
         if (id >= questions.size() || id < 0) throw new ResponseStatusException(HttpStatus.NOT_FOUND, "No such quiz");
+
         return questions.get(id);
     }
 
     @PostMapping(path = "/api/quizzes/{id}/solve")
     public AnswerRes solveQuestion(@PathVariable int id, @RequestParam("answer") int answer) {
+        if (id >= questions.size() || id < 0) throw new ResponseStatusException(HttpStatus.NOT_FOUND, "No such quiz");
+
         return new AnswerRes(questions.get(id).ifGuessed(answer));
     }
 }

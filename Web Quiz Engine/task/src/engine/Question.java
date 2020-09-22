@@ -1,18 +1,17 @@
 package engine;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class Question {
     private int id;
-    private String title;
-    private String text;
-    private String[] options;
-    private int answer;
+    final private String title;
+    final private String text;
+    final private String[] options;
 
-    public Question() {
-
-    }
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    final private int answer;
 
     public Question(String title, String text, String[] options, int answer) {
-        this.id = id;
         this.title = title;
         this.text = text;
         this.options = options;
@@ -21,18 +20,6 @@ public class Question {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public void setText(String text) {
-        this.text = text;
-    }
-
-    public void setOptions(String[] options) {
-        this.options = options;
     }
 
     public int getId() {
@@ -52,7 +39,7 @@ public class Question {
     }
 
     public boolean ifGuessed(int answer) {
-        return this.answer == answer;
+        return answer == this.answer;
     }
 }
 
