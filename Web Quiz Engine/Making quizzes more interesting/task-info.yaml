@@ -501,6 +501,35 @@ files:
         }
     }
   learner_created: false
+- name: src/engine/AnswerRes.java
+  visible: true
+  learner_created: true
+- name: src/engine/Quiz.java
+  visible: true
+  learner_created: true
+- name: src/resources/Questions.json
+  visible: true
+  learner_created: true
+- name: src/engine/Question.java
+  visible: true
+  learner_created: true
 feedback_link: https://hyperskill.org/projects/91/stages/506/implement
-status: Unchecked
+status: Failed
+feedback:
+  message: |-
+    Wrong answer in test #10
+
+    POST /api/quizzes/0/solve should respond with status code 200, responded: 400
+
+    Response body:
+
+    {&quot;timestamp&quot;:&quot;2020-09-22T23:40:32.228+0000&quot;,&quot;status&quot;:400,&quot;error&quot;:&quot;Bad Request&quot;,&quot;message&quot;:&quot;JSON parse error: Cannot deserialize instance of `[I` out of START_OBJECT token; nested exception is com.fasterxml.jackson.databind.exc.MismatchedInputException: Cannot deserialize instance of `[I` out of START_OBJECT token\n at [Source: (PushbackInputStream); line: 1, column: 1]&quot;,&quot;path&quot;:&quot;/api/quizzes/0/solve&quot;}
+
+    Please find below the output of your program during this failed test.
+
+    ---
+
+    2020-09-23 01:40:32.227  WARN 18404 --- [nio-8889-exec-1] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot deserialize instance of `[I` out of START_OBJECT token; nested exception is com.fasterxml.jackson.databind.exc.MismatchedInputException: Cannot deserialize instance of `[I` out of START_OBJECT token
+     at [Source: (PushbackInputStream); line: 1, column: 1]]
+  time: Tue, 22 Sep 2020 23:40:32 UTC
 record: -1

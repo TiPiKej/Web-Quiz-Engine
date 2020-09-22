@@ -314,21 +314,10 @@ files:
 - name: src/resources/Questions.json
   visible: true
   learner_created: true
-- name: src/engine/QuestionBody.java
-  visible: true
-  learner_created: true
 feedback_link: https://hyperskill.org/projects/91/stages/505/implement
-status: Failed
+status: Solved
 feedback:
-  message: |-
-    Wrong answer in test #10
-
-    The JSON object at key success should equal to false, found true
-
-    Full JSON:
-    {
-      &quot;success&quot;: true,
-      &quot;feedback&quot;: &quot;Congratulations, you\u0027re right!&quot;
-    }
-  time: Sun, 20 Sep 2020 15:02:04 UTC
-record: -1
+  message: Congratulations! Continue on <a href="https://hyperskill.org/projects/91/stages/505/implement">JetBrains
+    Academy</a>
+  time: Tue, 22 Sep 2020 20:32:28 UTC
+record: 2
