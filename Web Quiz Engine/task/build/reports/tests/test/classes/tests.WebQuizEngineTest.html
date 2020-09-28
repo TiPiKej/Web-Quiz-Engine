@@ -29,7 +29,7 @@
 </td>
 <td>
 <div class="infoBox" id="failures">
-<div class="counter">1</div>
+<div class="counter">0</div>
 <p>failures</p>
 </div>
 </td>
@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">3.662s</div>
+<div class="counter">4.026s</div>
 <p>duration</p>
 </div>
 </td>
@@ -50,8 +50,8 @@
 </div>
 </td>
 <td>
-<div class="infoBox failures" id="successRate">
-<div class="percent">0%</div>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
 <p>successful</p>
 </div>
 </td>
@@ -61,90 +61,13 @@
 <div id="tabs">
 <ul class="tabLinks">
 <li>
-<a href="#tab0">Failed tests</a>
+<a href="#tab0">Tests</a>
 </li>
 <li>
-<a href="#tab1">Tests</a>
-</li>
-<li>
-<a href="#tab2">Standard output</a>
+<a href="#tab1">Standard output</a>
 </li>
 </ul>
 <div id="tab0" class="tab">
-<h2>Failed tests</h2>
-<div class="test">
-<a name="start"></a>
-<h3 class="failures">start</h3>
-<span class="code">
-<pre>java.lang.AssertionError: Wrong answer in test #10
-
-POST /api/quizzes/0/solve should respond with status code 200, responded: 400
-
-Response body:
-
-{&quot;timestamp&quot;:&quot;2020-09-22T23:40:32.228+0000&quot;,&quot;status&quot;:400,&quot;error&quot;:&quot;Bad Request&quot;,&quot;message&quot;:&quot;JSON parse error: Cannot deserialize instance of `[I` out of START_OBJECT token; nested exception is com.fasterxml.jackson.databind.exc.MismatchedInputException: Cannot deserialize instance of `[I` out of START_OBJECT token\n at [Source: (PushbackInputStream); line: 1, column: 1]&quot;,&quot;path&quot;:&quot;/api/quizzes/0/solve&quot;}
-
-Please find below the output of your program during this failed test.
-
----
-
-2020-09-23 01:40:32.227  WARN 18404 --- [nio-8889-exec-1] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot deserialize instance of `[I` out of START_OBJECT token; nested exception is com.fasterxml.jackson.databind.exc.MismatchedInputException: Cannot deserialize instance of `[I` out of START_OBJECT token
- at [Source: (PushbackInputStream); line: 1, column: 1]]
-	at org.junit.Assert.fail(Assert.java:88)
-	at org.hyperskill.hstest.stage.StageTest.start(StageTest.java:103)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
-	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
-	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
-	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
-	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
-	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
-	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
-	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
-	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
-	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
-	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
-	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
-	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
-	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
-	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
-	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecutor.runTestClass(JUnitTestClassExecutor.java:110)
-	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecutor.execute(JUnitTestClassExecutor.java:58)
-	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecutor.execute(JUnitTestClassExecutor.java:38)
-	at org.gradle.api.internal.tasks.testing.junit.AbstractJUnitTestClassProcessor.processTestClass(AbstractJUnitTestClassProcessor.java:62)
-	at org.gradle.api.internal.tasks.testing.SuiteTestClassProcessor.processTestClass(SuiteTestClassProcessor.java:51)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
-	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:36)
-	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
-	at org.gradle.internal.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:33)
-	at org.gradle.internal.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:94)
-	at com.sun.proxy.$Proxy2.processTestClass(Unknown Source)
-	at org.gradle.api.internal.tasks.testing.worker.TestWorker.processTestClass(TestWorker.java:119)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
-	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:36)
-	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
-	at org.gradle.internal.remote.internal.hub.MessageHubBackedObjectConnection$DispatchWrapper.dispatch(MessageHubBackedObjectConnection.java:182)
-	at org.gradle.internal.remote.internal.hub.MessageHubBackedObjectConnection$DispatchWrapper.dispatch(MessageHubBackedObjectConnection.java:164)
-	at org.gradle.internal.remote.internal.hub.MessageHub$Handler.run(MessageHub.java:414)
-	at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:64)
-	at org.gradle.internal.concurrent.ManagedExecutorImpl$1.run(ManagedExecutorImpl.java:48)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
-	at org.gradle.internal.concurrent.ThreadFactoryImpl$ManagedThreadRunnable.run(ThreadFactoryImpl.java:56)
-	at java.base/java.lang.Thread.run(Thread.java:834)
-</pre>
-</span>
-</div>
-</div>
-<div id="tab1" class="tab">
 <h2>Tests</h2>
 <table>
 <thead>
@@ -155,13 +78,13 @@ Please find below the output of your program during this failed test.
 </tr>
 </thead>
 <tr>
-<td class="failures">start</td>
-<td class="failures">3.662s</td>
-<td class="failures">failed</td>
+<td class="success">start</td>
+<td class="success">4.026s</td>
+<td class="success">passed</td>
 </tr>
 </table>
 </div>
-<div id="tab2" class="tab">
+<div id="tab1" class="tab">
 <h2>Standard output</h2>
 <span class="code">
 <pre>?[1;31m
@@ -175,20 +98,20 @@ Start test 1?[0m
  =========|_|==============|___/=/_/_/_/
  :: Spring Boot ::        (v2.2.2.RELEASE)
 
-2020-09-23 01:40:29.251  INFO 18404 --- [    Test worker] engine.WebQuizEngine                     : Starting WebQuizEngine on WIN10 with PID 18404 (started by Tomek in C:\JavaProjects\Web Quiz Engine\Web Quiz Engine\task)
-2020-09-23 01:40:29.255  INFO 18404 --- [    Test worker] engine.WebQuizEngine                     : No active profile set, falling back to default profiles: default
-2020-09-23 01:40:30.629  INFO 18404 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8889 (http)
-2020-09-23 01:40:30.642  INFO 18404 --- [    Test worker] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2020-09-23 01:40:30.643  INFO 18404 --- [    Test worker] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.29]
-2020-09-23 01:40:30.769  INFO 18404 --- [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2020-09-23 01:40:30.770  INFO 18404 --- [    Test worker] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1462 ms
-2020-09-23 01:40:31.135  INFO 18404 --- [    Test worker] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2020-09-23 01:40:31.399  INFO 18404 --- [    Test worker] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 14 endpoint(s) beneath base path '/actuator'
-2020-09-23 01:40:31.472  INFO 18404 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8889 (http) with context path ''
-2020-09-23 01:40:31.477  INFO 18404 --- [    Test worker] engine.WebQuizEngine                     : Started WebQuizEngine in 2.681 seconds (JVM running for 3.603)
-2020-09-23 01:40:31.852  INFO 18404 --- [nio-8889-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2020-09-23 01:40:31.853  INFO 18404 --- [nio-8889-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2020-09-23 01:40:31.861  INFO 18404 --- [nio-8889-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 8 ms
+2020-09-28 12:52:30.876  INFO 11152 --- [    Test worker] engine.WebQuizEngine                     : Starting WebQuizEngine on WIN10 with PID 11152 (started by Tomek in C:\JavaProjects\Web Quiz Engine\Web Quiz Engine\task)
+2020-09-28 12:52:30.880  INFO 11152 --- [    Test worker] engine.WebQuizEngine                     : No active profile set, falling back to default profiles: default
+2020-09-28 12:52:32.166  INFO 11152 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8889 (http)
+2020-09-28 12:52:32.179  INFO 11152 --- [    Test worker] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-09-28 12:52:32.180  INFO 11152 --- [    Test worker] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.29]
+2020-09-28 12:52:32.302  INFO 11152 --- [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-09-28 12:52:32.303  INFO 11152 --- [    Test worker] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1375 ms
+2020-09-28 12:52:32.672  INFO 11152 --- [    Test worker] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-09-28 12:52:32.925  INFO 11152 --- [    Test worker] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 14 endpoint(s) beneath base path '/actuator'
+2020-09-28 12:52:33.000  INFO 11152 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8889 (http) with context path ''
+2020-09-28 12:52:33.004  INFO 11152 --- [    Test worker] engine.WebQuizEngine                     : Started WebQuizEngine in 2.515 seconds (JVM running for 3.391)
+2020-09-28 12:52:33.358  INFO 11152 --- [nio-8889-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-09-28 12:52:33.359  INFO 11152 --- [nio-8889-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-09-28 12:52:33.367  INFO 11152 --- [nio-8889-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 7 ms
 ?[1;31m
 Start test 2?[0m
 ?[1;31m
@@ -207,8 +130,227 @@ Start test 8?[0m
 Start test 9?[0m
 ?[1;31m
 Start test 10?[0m
-2020-09-23 01:40:32.227  WARN 18404 --- [nio-8889-exec-1] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot deserialize instance of `[I` out of START_OBJECT token; nested exception is com.fasterxml.jackson.databind.exc.MismatchedInputException: Cannot deserialize instance of `[I` out of START_OBJECT token
- at [Source: (PushbackInputStream); line: 1, column: 1]]
+?[1;31m
+Start test 11?[0m
+?[1;31m
+Start test 12?[0m
+?[1;31m
+Start test 13?[0m
+?[1;31m
+Start test 14?[0m
+?[1;31m
+Start test 15?[0m
+?[1;31m
+Start test 16?[0m
+?[1;31m
+Start test 17?[0m
+?[1;31m
+Start test 18?[0m
+2020-09-28 12:52:33.751  WARN 11152 --- [io-8889-exec-10] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Unexpected character ('&quot;' (code 34)): was expecting comma to separate Object entries; nested exception is com.fasterxml.jackson.core.JsonParseException: Unexpected character ('&quot;' (code 34)): was expecting comma to separate Object entries
+ at [Source: (PushbackInputStream); line: 4, column: 4]]
+?[1;31m
+Start test 19?[0m
+2020-09-28 12:52:33.758  WARN 11152 --- [nio-8889-exec-1] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Unexpected character ('&quot;' (code 34)): was expecting comma to separate Object entries; nested exception is com.fasterxml.jackson.core.JsonParseException: Unexpected character ('&quot;' (code 34)): was expecting comma to separate Object entries
+ at [Source: (PushbackInputStream); line: 5, column: 4]]
+?[1;31m
+Start test 20?[0m
+2020-09-28 12:52:33.766  WARN 11152 --- [nio-8889-exec-2] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Unexpected character ('&quot;' (code 34)): was expecting comma to separate Object entries; nested exception is com.fasterxml.jackson.core.JsonParseException: Unexpected character ('&quot;' (code 34)): was expecting comma to separate Object entries
+ at [Source: (PushbackInputStream); line: 4, column: 4]]
+?[1;31m
+Start test 21?[0m
+2020-09-28 12:52:33.774  WARN 11152 --- [nio-8889-exec-3] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Unexpected character ('&quot;' (code 34)): was expecting comma to separate Object entries; nested exception is com.fasterxml.jackson.core.JsonParseException: Unexpected character ('&quot;' (code 34)): was expecting comma to separate Object entries
+ at [Source: (PushbackInputStream); line: 5, column: 4]]
+?[1;31m
+Start test 22?[0m
+2020-09-28 12:52:33.807  WARN 11152 --- [nio-8889-exec-4] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [0] in public engine.Question engine.Quiz.addQuestion(engine.Question): [Field error in object 'question' on field 'options': rejected value [null]; codes [NotNull.question.options,NotNull.options,NotNull.[Ljava.lang.String;,NotNull]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [question.options,options]; arguments []; default message [options]]; default message [must not be null]] ]
+?[1;31m
+Start test 23?[0m
+2020-09-28 12:52:33.828  WARN 11152 --- [nio-8889-exec-5] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Unexpected character ('&quot;' (code 34)): was expecting comma to separate Object entries; nested exception is com.fasterxml.jackson.core.JsonParseException: Unexpected character ('&quot;' (code 34)): was expecting comma to separate Object entries
+ at [Source: (PushbackInputStream); line: 5, column: 4]]
+?[1;31m
+Start test 24?[0m
+2020-09-28 12:52:33.835  WARN 11152 --- [nio-8889-exec-6] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Unexpected character ('&quot;' (code 34)): was expecting comma to separate Object entries; nested exception is com.fasterxml.jackson.core.JsonParseException: Unexpected character ('&quot;' (code 34)): was expecting comma to separate Object entries
+ at [Source: (PushbackInputStream); line: 5, column: 4]]
+?[1;31m
+Start test 25?[0m
+?[1;31m
+Start test 26?[0m
+?[1;31m
+Start test 27?[0m
+?[1;31m
+Start test 28?[0m
+?[1;31m
+Start test 29?[0m
+?[1;31m
+Start test 30?[0m
+?[1;31m
+Start test 31?[0m
+?[1;31m
+Start test 32?[0m
+?[1;31m
+Start test 33?[0m
+?[1;31m
+Start test 34?[0m
+?[1;31m
+Start test 35?[0m
+?[1;31m
+Start test 36?[0m
+?[1;31m
+Start test 37?[0m
+?[1;31m
+Start test 38?[0m
+?[1;31m
+Start test 39?[0m
+?[1;31m
+Start test 40?[0m
+?[1;31m
+Start test 41?[0m
+?[1;31m
+Start test 42?[0m
+?[1;31m
+Start test 43?[0m
+?[1;31m
+Start test 44?[0m
+?[1;31m
+Start test 45?[0m
+?[1;31m
+Start test 46?[0m
+?[1;31m
+Start test 47?[0m
+?[1;31m
+Start test 48?[0m
+?[1;31m
+Start test 49?[0m
+?[1;31m
+Start test 50?[0m
+?[1;31m
+Start test 51?[0m
+?[1;31m
+Start test 52?[0m
+?[1;31m
+Start test 53?[0m
+?[1;31m
+Start test 54?[0m
+?[1;31m
+Start test 55?[0m
+?[1;31m
+Start test 56?[0m
+?[1;31m
+Start test 57?[0m
+?[1;31m
+Start test 58?[0m
+?[1;31m
+Start test 59?[0m
+?[1;31m
+Start test 60?[0m
+?[1;31m
+Start test 61?[0m
+?[1;31m
+Start test 62?[0m
+?[1;31m
+Start test 63?[0m
+?[1;31m
+Start test 64?[0m
+?[1;31m
+Start test 65?[0m
+?[1;31m
+Start test 66?[0m
+?[1;31m
+Start test 67?[0m
+?[1;31m
+Start test 68?[0m
+?[1;31m
+Start test 69?[0m
+?[1;31m
+Start test 70?[0m
+?[1;31m
+Start test 71?[0m
+?[1;31m
+Start test 72?[0m
+?[1;31m
+Start test 73?[0m
+?[1;31m
+Start test 74?[0m
+?[1;31m
+Start test 75?[0m
+?[1;31m
+Start test 76?[0m
+?[1;31m
+Start test 77?[0m
+?[1;31m
+Start test 78?[0m
+?[1;31m
+Start test 79?[0m
+?[1;31m
+Start test 80?[0m
+?[1;31m
+Start test 81?[0m
+?[1;31m
+Start test 82?[0m
+?[1;31m
+Start test 83?[0m
+?[1;31m
+Start test 84?[0m
+?[1;31m
+Start test 85?[0m
+?[1;31m
+Start test 86?[0m
+?[1;31m
+Start test 87?[0m
+?[1;31m
+Start test 88?[0m
+?[1;31m
+Start test 89?[0m
+?[1;31m
+Start test 90?[0m
+?[1;31m
+Start test 91?[0m
+?[1;31m
+Start test 92?[0m
+?[1;31m
+Start test 93?[0m
+?[1;31m
+Start test 94?[0m
+?[1;31m
+Start test 95?[0m
+?[1;31m
+Start test 96?[0m
+?[1;31m
+Start test 97?[0m
+?[1;31m
+Start test 98?[0m
+?[1;31m
+Start test 99?[0m
+?[1;31m
+Start test 100?[0m
+?[1;31m
+Start test 101?[0m
+?[1;31m
+Start test 102?[0m
+?[1;31m
+Start test 103?[0m
+?[1;31m
+Start test 104?[0m
+?[1;31m
+Start test 105?[0m
+?[1;31m
+Start test 106?[0m
+?[1;31m
+Start test 107?[0m
+?[1;31m
+Start test 108?[0m
+?[1;31m
+Start test 109?[0m
+?[1;31m
+Start test 110?[0m
+?[1;31m
+Start test 111?[0m
+?[1;31m
+Start test 112?[0m
+?[1;31m
+Start test 113?[0m
+?[1;31m
+Start test 114?[0m
 </pre>
 </span>
 </div>
@@ -220,7 +362,7 @@ Start test 10?[0m
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 6.6.1</a> at 23 wrz 2020, 01:40:32</p>
+<a href="http://www.gradle.org">Gradle 6.6.1</a> at 28 wrz 2020, 12:52:34</p>
 </div>
 </div>
 </body>

@@ -1,91 +1,55 @@
 package engine;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.hibernate.validator.constraints.Length;
 
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.Objects;
 
+@Getter
+@Setter
+@NoArgsConstructor
 public class Question {
+
     private int id;
 
-    @NotNull(message = "Please enter title")
-    @NotEmpty
+    @NotBlank
     private String title;
 
-    @NotNull(message = "Please enter text")
-    @NotEmpty
+    @NotBlank
     private String text;
 
+    @Size(min = 2)
     @NotNull
-    @NotEmpty
     private String[] options;
 
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-//    @NotNull
-//    @NotEmpty
-    private int[] answer;
-
-    public Question() {
-    }
+    @Setter(AccessLevel.NONE)
+    private Answer answer;
 
     public Question(String title, String text, String[] options, int[] answer) {
         this.title = title;
         this.text = text;
         this.options = options;
-        this.answer = answer;
+        this.answer = new Answer(answer);
     }
 
     public Question(String title, String text, String[] options) {
         this.title = title;
         this.text = text;
         this.options = options;
-        this.answer = new int[0];
+        this.answer = new Answer(new int[0]);
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public String[] getOptions() {
-        return options;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public String getText() {
-        return text;
-    }
-
-    public boolean ifGuessed(int[] answer) {
-        if (answer.length != this.answer.length) return false;
-
-        return Objects.equals(answer, this.answer);
-
-//        boolean isCorrect = true;
-
-//        for (int a : this.answer) {
-//            boolean is = false;
-//            for (int aTemp : answer) {
-//                if (aTemp == a) {
-//                    is = true;
-//                    break;
-//                }
-//            }
-//            if (!is) {
-//                isCorrect = false;
-//                break;
-//            }
-//        }
-
-//        return isCorrect;
+    public void setAnswer(int[] answer) {
+        this.answer = new Answer(answer);
     }
 }
 

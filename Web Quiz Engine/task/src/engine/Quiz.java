@@ -1,5 +1,9 @@
 package engine;
 
+import lombok.RequiredArgsConstructor;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.HttpClientErrorException;
@@ -11,46 +15,39 @@ import java.util.HashMap;
 import java.util.List;
 
 @RestController
+@RequestMapping("/api/quizzes")
+@RequiredArgsConstructor
 public class Quiz {
     private List<Question> questions = new ArrayList<>();
 
-    @PostMapping(path = "/api/quizzes")
+    @GetMapping
+    public List<Question> getQuestion() {
+        return questions;
+    }
+
+    @PostMapping
     public Question addQuestion(@Valid @RequestBody Question question) {
         question.setId(questions.size());
-
-        if (question.getOptions().length <= 2) throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Invalid fields!");
 
         questions.add(question);
 
         return question;
     }
 
-    @GetMapping(path = "/api/quizzes")
-    public List<Question> getQuestion() {
-        return questions;
-    }
-
-    @GetMapping(path = "/api/quizzes/{id}")
+    @GetMapping(path = "/{id}")
     public Question getQuestion(@PathVariable int id) {
-        if (id >= questions.size() || id < 0) throw new ResponseStatusException(HttpStatus.NOT_FOUND, "No such quiz");
+        if (id >= questions.size() || id < 0) throw new NoQuizException(id);
 
         return questions.get(id);
     }
 
-    @PostMapping(path = "/api/quizzes/{id}/solve")
-    public AnswerRes solveQuestion(@PathVariable int id, /*@RequestParam(value = "answer", required = false)*/@RequestBody int[] answer) {
-        if (id >= questions.size() || id < 0) throw new ResponseStatusException(HttpStatus.NOT_FOUND, "No such quiz");
+    @PostMapping(path = "/{id}/solve")
+    public AnswerRes solveQuestion(@PathVariable int id, @RequestBody Answer answer) throws ParseException {
+        if (id >= questions.size() || id < 0) throw new NoQuizException(id);
 
-        if (answer == null) answer = new int[0];
+        Answer correctAnswer = questions.get(id).getAnswer();
+        if (correctAnswer == null) correctAnswer = new Answer(new int[0]);
 
-        return new AnswerRes(questions.get(id).ifGuessed(answer));
-    }
-
-    @ResponseStatus(value = HttpStatus.BAD_REQUEST, reason = "Incorrect fields!")
-    public HashMap<String, String> handleBadRequest(Exception e) {
-        HashMap<String, String> response = new HashMap<>();
-        response.put("message", "BAD_REQUEST");
-        response.put("error", e.getClass().getSimpleName());
-        return response;
+        return new AnswerRes(correctAnswer.equals(answer));
     }
 }

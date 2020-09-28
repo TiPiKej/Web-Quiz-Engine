@@ -11,6 +11,7 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/Problems/Complex" />
             <option value="$PROJECT_DIR$/Problems/Greedy load balance" />
             <option value="$PROJECT_DIR$/Problems/Overloading methods" />
             <option value="$PROJECT_DIR$/Web Quiz Engine/task" />
