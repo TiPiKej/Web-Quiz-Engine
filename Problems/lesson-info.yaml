@@ -2,3 +2,6 @@ content:
 - Overloading methods
 - Greedy load balance
 - Complex
+- Arithmetic expression
+- Comparing strings ignoring whitespaces
+- Interval
