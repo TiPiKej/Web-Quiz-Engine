@@ -720,6 +720,289 @@ files:
         }
     }
   learner_created: false
+- name: src/engine/AnswerRes.java
+  visible: true
+  text: |
+    package engine;
+
+    import lombok.Getter;
+
+    @Getter
+    public class AnswerRes {
+        private final boolean success;
+        private final String feedback;
+
+        public AnswerRes(boolean success) {
+            this.success = success;
+            this.feedback = success ? "Congratulations, you're right!" : "Wrong answer! Please, try again.";
+        }
+    }
+  learner_created: true
+- name: src/engine/QuizRepository.java
+  visible: true
+  text: |-
+    package engine;
+
+    import org.springframework.data.jpa.repository.JpaRepository;
+    import org.springframework.stereotype.Repository;
+
+    @Repository
+    public interface QuizRepository extends JpaRepository<QuestionDBFormat, Long>{
+
+    }
+  learner_created: true
+- name: src/engine/Answer.java
+  visible: true
+  text: |
+    package engine;
+
+    import lombok.AllArgsConstructor;
+    import lombok.Getter;
+    import lombok.NoArgsConstructor;
+    import lombok.Setter;
+
+    import java.util.Arrays;
+
+    @Getter
+    @Setter
+    @AllArgsConstructor
+    @NoArgsConstructor
+    public class Answer {
+        private int[] answer;
+
+        public int length() {
+            return answer.length;
+        }
+
+        @Override
+        public boolean equals(Object obj) {
+            if (obj == null) return false;
+
+            if (!(obj instanceof Answer)) return false;
+
+            Answer answer = (Answer) obj;
+
+            if (this.length() != answer.length()) return false;
+
+            for (int curAns : answer.getAnswer()) {
+                boolean isThere = false;
+                for (int cThisAns : this.getAnswer()) {
+                    if (cThisAns == curAns) {
+                        isThere = true;
+                        break;
+                    }
+                }
+
+                if (!isThere) return false;
+            }
+
+            for (int cThisAns : this.getAnswer()) {
+                boolean isThere = false;
+                for (int curAns : answer.getAnswer()) {
+                    if (cThisAns == curAns) {
+                        isThere = true;
+                        break;
+                    }
+                }
+
+                if (!isThere) return false;
+            }
+
+            return true;
+        }
+
+        @Override
+        public String toString() {
+            return Arrays.toString(answer);
+        }
+    }
+  learner_created: true
+- name: src/engine/QuestionDBFormat.java
+  visible: true
+  text: |
+    package engine;
+
+    import lombok.AllArgsConstructor;
+    import lombok.Getter;
+    import lombok.NoArgsConstructor;
+    import lombok.Setter;
+
+    import javax.persistence.*;
+    import java.util.Arrays;
+    import java.util.List;
+
+    @Getter
+    @Setter
+    @AllArgsConstructor
+    @NoArgsConstructor
+    @Entity(name = "Quizzes")
+    public class QuestionDBFormat {
+        @Id
+        @GeneratedValue(strategy = GenerationType.AUTO)
+        private Long id;
+
+        @Column(name = "title", nullable = false)
+        private String title;
+
+        @Column(name = "text", nullable = false)
+        private String text;
+
+        @Column(name = "options")
+        private String[] options;
+
+        @Column(name = "answers")
+        private String answers;
+
+        public QuestionDBFormat(Question q) {
+            this.id = q.getId();
+            this.title = q.getTitle();
+            this.text = q.getText();
+            this.options = q.getOptions();
+            this.answers = q.getAnswer().toString();
+        }
+    }
+  learner_created: true
+- name: src/engine/Quiz.java
+  visible: true
+  text: |
+    package engine;
+
+    import lombok.RequiredArgsConstructor;
+    import org.springframework.beans.factory.annotation.Autowired;
+    import org.springframework.web.bind.annotation.*;
+
+    import javax.validation.Valid;
+    import java.util.List;
+    import java.util.Optional;
+
+    @RestController
+    @RequestMapping("/api/quizzes")
+    @RequiredArgsConstructor
+    public class Quiz {
+        @Autowired
+        private QuizRepository quizRepository;
+
+        @GetMapping
+        public List<Question> getQuestion() {
+            return Question.parseListQuestion(quizRepository.findAll());
+        }
+
+        @PostMapping
+        public QuestionDBFormat addQuestion(@Valid @RequestBody Question question) {
+            if (question.getAnswer() == null) question.setAnswer(new int[0]);
+
+            return quizRepository.save(new QuestionDBFormat(question));
+        }
+
+        @GetMapping(path = "/{id}")
+        public Question getQuestion(@PathVariable(value = "id") Long questionId) {
+            return new Question(quizRepository.findById(questionId).orElseThrow(
+                    () -> new NoQuizException(questionId)
+            ));
+        }
+
+        @PostMapping(path = "/{id}/solve")
+        public AnswerRes solveQuestion(@PathVariable(value = "id") Long questionId, @RequestBody Answer answer) {
+            Answer correctAnswer = getQuestion(questionId).getAnswer();
+            if (correctAnswer == null) correctAnswer = new Answer(new int[0]);
+
+            return new AnswerRes(correctAnswer.equals(answer));
+        }
+    }
+  learner_created: true
+- name: src/engine/NoQuizException.java
+  visible: true
+  text: |
+    package engine;
+
+    import org.springframework.http.HttpStatus;
+    import org.springframework.web.bind.annotation.ResponseStatus;
+
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    public class NoQuizException extends RuntimeException {
+        public NoQuizException(Long id) {
+            super(String.format("%d# quiz not found!", id));
+        }
+    }
+  learner_created: true
+- name: src/engine/Question.java
+  visible: true
+  text: |+
+    package engine;
+
+    import com.fasterxml.jackson.annotation.JsonProperty;
+    import lombok.AccessLevel;
+    import lombok.Getter;
+    import lombok.NoArgsConstructor;
+    import lombok.Setter;
+
+    import javax.persistence.Column;
+    import javax.persistence.Entity;
+    import javax.persistence.Id;
+    import javax.validation.constraints.NotBlank;
+    import javax.validation.constraints.NotNull;
+    import javax.validation.constraints.Size;
+    import java.util.ArrayList;
+    import java.util.Arrays;
+    import java.util.List;
+
+    @Getter
+    @Setter
+    @NoArgsConstructor
+    public class Question {
+        private Long id;
+
+        @NotBlank
+        private String title;
+
+        @NotBlank
+        private String text;
+
+        @Size(min = 2)
+        @NotNull
+        private String[] options;
+
+        @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+        @Setter(AccessLevel.NONE)
+        private Answer answer;
+
+        public Question(QuestionDBFormat question) {
+            this.id = question.getId();
+            this.title = question.getTitle();
+            this.text = question.getText();
+            this.options = question.getOptions();
+            this.setAnswer(parseAnswers(question.getAnswers()));
+        }
+
+        public void setAnswer(int[] answer) {
+            this.answer = new Answer(answer);
+        }
+
+        public static int[] parseAnswers(String answersStr) {
+            if (answersStr == null) return new int[0];
+            String trimmed = answersStr.replaceAll("\\[", "").replaceAll("\\]", "").replaceAll("\\s", "");
+            String[] items = trimmed.equals("") ? new String[0] : trimmed.split(",");
+            int[] answers = new int[items.length];
+
+            for (int i = 0; i < items.length; i++) {
+                answers[i] = Integer.parseInt(items[i]);
+            }
+
+            return answers;
+        }
+
+        public static List<Question> parseListQuestion(List<QuestionDBFormat> questions) {
+            final List<Question> z = new ArrayList<>();
+
+            for (QuestionDBFormat question : questions) {
+                z.add(new Question(question));
+            }
+
+            return z;
+        }
+    }
+
+  learner_created: true
 feedback_link: https://hyperskill.org/projects/91/stages/508/implement
 status: Unchecked
 record: -1

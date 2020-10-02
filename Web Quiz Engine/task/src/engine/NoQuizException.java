@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 
 @ResponseStatus(HttpStatus.NOT_FOUND)
 public class NoQuizException extends RuntimeException {
-    public NoQuizException(int id) {
+    public NoQuizException(Long id) {
         super(String.format("%d# quiz not found!", id));
     }
 }

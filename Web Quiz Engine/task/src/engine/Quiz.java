@@ -1,51 +1,42 @@
 package engine;
 
 import lombok.RequiredArgsConstructor;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
-import org.springframework.http.HttpStatus;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.client.HttpClientErrorException;
-import org.springframework.web.server.ResponseStatusException;
 
 import javax.validation.Valid;
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/quizzes")
 @RequiredArgsConstructor
 public class Quiz {
-    private List<Question> questions = new ArrayList<>();
+    @Autowired
+    private QuizRepository quizRepository;
 
     @GetMapping
     public List<Question> getQuestion() {
-        return questions;
+        return Question.parseListQuestion(quizRepository.findAll());
     }
 
     @PostMapping
-    public Question addQuestion(@Valid @RequestBody Question question) {
-        question.setId(questions.size());
+    public QuestionDBFormat addQuestion(@Valid @RequestBody Question question) {
+        if (question.getAnswer() == null) question.setAnswer(new int[0]);
 
-        questions.add(question);
-
-        return question;
+        return quizRepository.save(new QuestionDBFormat(question));
     }
 
     @GetMapping(path = "/{id}")
-    public Question getQuestion(@PathVariable int id) {
-        if (id >= questions.size() || id < 0) throw new NoQuizException(id);
-
-        return questions.get(id);
+    public Question getQuestion(@PathVariable(value = "id") Long questionId) {
+        return new Question(quizRepository.findById(questionId).orElseThrow(
+                () -> new NoQuizException(questionId)
+        ));
     }
 
     @PostMapping(path = "/{id}/solve")
-    public AnswerRes solveQuestion(@PathVariable int id, @RequestBody Answer answer) throws ParseException {
-        if (id >= questions.size() || id < 0) throw new NoQuizException(id);
-
-        Answer correctAnswer = questions.get(id).getAnswer();
+    public AnswerRes solveQuestion(@PathVariable(value = "id") Long questionId, @RequestBody Answer answer) {
+        Answer correctAnswer = getQuestion(questionId).getAnswer();
         if (correctAnswer == null) correctAnswer = new Answer(new int[0]);
 
         return new AnswerRes(correctAnswer.equals(answer));

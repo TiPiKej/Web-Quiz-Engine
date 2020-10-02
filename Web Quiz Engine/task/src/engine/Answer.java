@@ -54,4 +54,9 @@ public class Answer {
 
         return true;
     }
+
+    @Override
+    public String toString() {
+        return Arrays.toString(answer);
+    }
 }
