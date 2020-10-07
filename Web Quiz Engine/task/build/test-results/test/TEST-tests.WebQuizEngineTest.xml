@@ -1,7 +1,109 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="tests.WebQuizEngineTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-10-02T10:39:19" hostname="WIN10" time="10.848">
+<testsuite name="tests.WebQuizEngineTest" tests="1" skipped="0" failures="1" errors="0" timestamp="2020-10-07T09:44:54" hostname="WIN10" time="5.791">
   <properties/>
-  <testcase name="start" classname="tests.WebQuizEngineTest" time="10.848"/>
+  <testcase name="start" classname="tests.WebQuizEngineTest" time="5.791">
+    <failure message="java.lang.AssertionError: Wrong answer in test #1&#10;&#10;POST /api/register should respond with status code 200, responded: 404&#10;&#10;Response body:&#10;&#10;{&quot;timestamp&quot;:&quot;2020-10-07T09:44:59.702+0000&quot;,&quot;status&quot;:404,&quot;error&quot;:&quot;Not Found&quot;,&quot;message&quot;:&quot;No message available&quot;,&quot;path&quot;:&quot;/api/register&quot;}&#10;&#10;Please find below the output of your program during this failed test.&#10;&#10;---&#10;&#10;&#10;  .   ____          _            __ _ _&#10; /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \&#10;( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \&#10; \\/  ___)| |_)| | | | | || (_| |  ) ) ) )&#10;  '  |____| .__|_| |_|_| |_\__, | / / / /&#10; =========|_|==============|___/=/_/_/_/&#10; :: Spring Boot ::        (v2.2.2.RELEASE)&#10;&#10;2020-10-07 11:44:54.566  INFO 8216 --- [    Test worker] engine.WebQuizEngine                     : Starting WebQuizEngine on WIN10 with PID 8216 (started by Tomek in C:\JavaProjects\Web Quiz Engine\Web Quiz Engine\task)&#10;2020-10-07 11:44:54.569  INFO 8216 --- [    Test worker] engine.WebQuizEngine                     : No active profile set, falling back to default profiles: default&#10;2020-10-07 11:44:55.576  INFO 8216 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.&#10;2020-10-07 11:44:55.649  INFO 8216 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 62ms. Found 1 JPA repository interfaces.&#10;2020-10-07 11:44:56.067  INFO 8216 --- [    Test worker] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)&#10;2020-10-07 11:44:56.368  INFO 8216 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8889 (http)&#10;2020-10-07 11:44:56.381  INFO 8216 --- [    Test worker] o.apache.catalina.core.StandardService   : Starting service [Tomcat]&#10;2020-10-07 11:44:56.382  INFO 8216 --- [    Test worker] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.29]&#10;2020-10-07 11:44:56.531  INFO 8216 --- [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext&#10;2020-10-07 11:44:56.531  INFO 8216 --- [    Test worker] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1911 ms&#10;2020-10-07 11:44:56.659  INFO 8216 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...&#10;2020-10-07 11:44:56.886  INFO 8216 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.&#10;2020-10-07 11:44:56.893  INFO 8216 --- [    Test worker] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:file:../quizdb'&#10;2020-10-07 11:44:57.186  INFO 8216 --- [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]&#10;2020-10-07 11:44:57.282  INFO 8216 --- [    Test worker] org.hibernate.Version                    : HHH000412: Hibernate Core {5.4.9.Final}&#10;2020-10-07 11:44:57.491  INFO 8216 --- [    Test worker] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}&#10;2020-10-07 11:44:57.648  INFO 8216 --- [    Test worker] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect&#10;Hibernate: create table quizzes (id bigint not null, answers varchar(255), options binary(255), text varchar(255) not null, title varchar(255) not null, primary key (id))&#10;Hibernate: create sequence hibernate_sequence start with 1 increment by 1&#10;2020-10-07 11:44:58.461  INFO 8216 --- [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]&#10;2020-10-07 11:44:58.469  INFO 8216 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'&#10;2020-10-07 11:44:58.778  WARN 8216 --- [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning&#10;2020-10-07 11:44:58.915  INFO 8216 --- [    Test worker] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'&#10;2020-10-07 11:44:59.216  INFO 8216 --- [    Test worker] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 14 endpoint(s) beneath base path '/actuator'&#10;2020-10-07 11:44:59.284  INFO 8216 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8889 (http) with context path ''&#10;2020-10-07 11:44:59.287  INFO 8216 --- [    Test worker] engine.WebQuizEngine                     : Started WebQuizEngine in 5.103 seconds (JVM running for 5.859)&#10;2020-10-07 11:44:59.647  INFO 8216 --- [nio-8889-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'&#10;2020-10-07 11:44:59.648  INFO 8216 --- [nio-8889-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'&#10;2020-10-07 11:44:59.657  INFO 8216 --- [nio-8889-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 9 ms" type="java.lang.AssertionError">java.lang.AssertionError: Wrong answer in test #1
+
+POST /api/register should respond with status code 200, responded: 404
+
+Response body:
+
+{&quot;timestamp&quot;:&quot;2020-10-07T09:44:59.702+0000&quot;,&quot;status&quot;:404,&quot;error&quot;:&quot;Not Found&quot;,&quot;message&quot;:&quot;No message available&quot;,&quot;path&quot;:&quot;/api/register&quot;}
+
+Please find below the output of your program during this failed test.
+
+---
+
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::        (v2.2.2.RELEASE)
+
+2020-10-07 11:44:54.566  INFO 8216 --- [    Test worker] engine.WebQuizEngine                     : Starting WebQuizEngine on WIN10 with PID 8216 (started by Tomek in C:\JavaProjects\Web Quiz Engine\Web Quiz Engine\task)
+2020-10-07 11:44:54.569  INFO 8216 --- [    Test worker] engine.WebQuizEngine                     : No active profile set, falling back to default profiles: default
+2020-10-07 11:44:55.576  INFO 8216 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2020-10-07 11:44:55.649  INFO 8216 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 62ms. Found 1 JPA repository interfaces.
+2020-10-07 11:44:56.067  INFO 8216 --- [    Test worker] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-10-07 11:44:56.368  INFO 8216 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8889 (http)
+2020-10-07 11:44:56.381  INFO 8216 --- [    Test worker] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-10-07 11:44:56.382  INFO 8216 --- [    Test worker] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.29]
+2020-10-07 11:44:56.531  INFO 8216 --- [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-10-07 11:44:56.531  INFO 8216 --- [    Test worker] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1911 ms
+2020-10-07 11:44:56.659  INFO 8216 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-10-07 11:44:56.886  INFO 8216 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-10-07 11:44:56.893  INFO 8216 --- [    Test worker] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:file:../quizdb'
+2020-10-07 11:44:57.186  INFO 8216 --- [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-10-07 11:44:57.282  INFO 8216 --- [    Test worker] org.hibernate.Version                    : HHH000412: Hibernate Core {5.4.9.Final}
+2020-10-07 11:44:57.491  INFO 8216 --- [    Test worker] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-10-07 11:44:57.648  INFO 8216 --- [    Test worker] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+Hibernate: create table quizzes (id bigint not null, answers varchar(255), options binary(255), text varchar(255) not null, title varchar(255) not null, primary key (id))
+Hibernate: create sequence hibernate_sequence start with 1 increment by 1
+2020-10-07 11:44:58.461  INFO 8216 --- [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-10-07 11:44:58.469  INFO 8216 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-10-07 11:44:58.778  WARN 8216 --- [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-10-07 11:44:58.915  INFO 8216 --- [    Test worker] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-10-07 11:44:59.216  INFO 8216 --- [    Test worker] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 14 endpoint(s) beneath base path '/actuator'
+2020-10-07 11:44:59.284  INFO 8216 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8889 (http) with context path ''
+2020-10-07 11:44:59.287  INFO 8216 --- [    Test worker] engine.WebQuizEngine                     : Started WebQuizEngine in 5.103 seconds (JVM running for 5.859)
+2020-10-07 11:44:59.647  INFO 8216 --- [nio-8889-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-10-07 11:44:59.648  INFO 8216 --- [nio-8889-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-10-07 11:44:59.657  INFO 8216 --- [nio-8889-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 9 ms
+	at org.junit.Assert.fail(Assert.java:88)
+	at org.hyperskill.hstest.stage.StageTest.start(StageTest.java:103)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecutor.runTestClass(JUnitTestClassExecutor.java:110)
+	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecutor.execute(JUnitTestClassExecutor.java:58)
+	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecutor.execute(JUnitTestClassExecutor.java:38)
+	at org.gradle.api.internal.tasks.testing.junit.AbstractJUnitTestClassProcessor.processTestClass(AbstractJUnitTestClassProcessor.java:62)
+	at org.gradle.api.internal.tasks.testing.SuiteTestClassProcessor.processTestClass(SuiteTestClassProcessor.java:51)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:36)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
+	at org.gradle.internal.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:33)
+	at org.gradle.internal.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:94)
+	at com.sun.proxy.$Proxy2.processTestClass(Unknown Source)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.processTestClass(TestWorker.java:119)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:36)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
+	at org.gradle.internal.remote.internal.hub.MessageHubBackedObjectConnection$DispatchWrapper.dispatch(MessageHubBackedObjectConnection.java:182)
+	at org.gradle.internal.remote.internal.hub.MessageHubBackedObjectConnection$DispatchWrapper.dispatch(MessageHubBackedObjectConnection.java:164)
+	at org.gradle.internal.remote.internal.hub.MessageHub$Handler.run(MessageHub.java:414)
+	at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:64)
+	at org.gradle.internal.concurrent.ManagedExecutorImpl$1.run(ManagedExecutorImpl.java:48)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)
+	at org.gradle.internal.concurrent.ThreadFactoryImpl$ManagedThreadRunnable.run(ThreadFactoryImpl.java:56)
+	at java.base/java.lang.Thread.run(Thread.java:832)
+</failure>
+  </testcase>
   <system-out><![CDATA[?[1;31m
 Start test 1?[0m
 
@@ -13,510 +115,35 @@ Start test 1?[0m
  =========|_|==============|___/=/_/_/_/
  :: Spring Boot ::        (v2.2.2.RELEASE)
 
-2020-10-02 12:39:19.949  INFO 12392 --- [    Test worker] engine.WebQuizEngine                     : Starting WebQuizEngine on WIN10 with PID 12392 (started by Tomek in C:\JavaProjects\Web Quiz Engine\Web Quiz Engine\task)
-2020-10-02 12:39:19.953  INFO 12392 --- [    Test worker] engine.WebQuizEngine                     : No active profile set, falling back to default profiles: default
-2020-10-02 12:39:21.041  INFO 12392 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2020-10-02 12:39:21.164  INFO 12392 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 111ms. Found 1 JPA repository interfaces.
-2020-10-02 12:39:21.724  INFO 12392 --- [    Test worker] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2020-10-02 12:39:22.032  INFO 12392 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8889 (http)
-2020-10-02 12:39:22.047  INFO 12392 --- [    Test worker] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2020-10-02 12:39:22.047  INFO 12392 --- [    Test worker] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.29]
-2020-10-02 12:39:22.210  INFO 12392 --- [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2020-10-02 12:39:22.210  INFO 12392 --- [    Test worker] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2199 ms
-2020-10-02 12:39:22.355  INFO 12392 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2020-10-02 12:39:22.601  INFO 12392 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2020-10-02 12:39:22.611  INFO 12392 --- [    Test worker] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:file:../quizdb'
-2020-10-02 12:39:22.908  INFO 12392 --- [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2020-10-02 12:39:23.030  INFO 12392 --- [    Test worker] org.hibernate.Version                    : HHH000412: Hibernate Core {5.4.9.Final}
-2020-10-02 12:39:23.272  INFO 12392 --- [    Test worker] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
-2020-10-02 12:39:23.441  INFO 12392 --- [    Test worker] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2020-10-07 11:44:54.566  INFO 8216 --- [    Test worker] engine.WebQuizEngine                     : Starting WebQuizEngine on WIN10 with PID 8216 (started by Tomek in C:\JavaProjects\Web Quiz Engine\Web Quiz Engine\task)
+2020-10-07 11:44:54.569  INFO 8216 --- [    Test worker] engine.WebQuizEngine                     : No active profile set, falling back to default profiles: default
+2020-10-07 11:44:55.576  INFO 8216 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2020-10-07 11:44:55.649  INFO 8216 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 62ms. Found 1 JPA repository interfaces.
+2020-10-07 11:44:56.067  INFO 8216 --- [    Test worker] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-10-07 11:44:56.368  INFO 8216 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8889 (http)
+2020-10-07 11:44:56.381  INFO 8216 --- [    Test worker] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-10-07 11:44:56.382  INFO 8216 --- [    Test worker] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.29]
+2020-10-07 11:44:56.531  INFO 8216 --- [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-10-07 11:44:56.531  INFO 8216 --- [    Test worker] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1911 ms
+2020-10-07 11:44:56.659  INFO 8216 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-10-07 11:44:56.886  INFO 8216 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-10-07 11:44:56.893  INFO 8216 --- [    Test worker] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:file:../quizdb'
+2020-10-07 11:44:57.186  INFO 8216 --- [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-10-07 11:44:57.282  INFO 8216 --- [    Test worker] org.hibernate.Version                    : HHH000412: Hibernate Core {5.4.9.Final}
+2020-10-07 11:44:57.491  INFO 8216 --- [    Test worker] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-10-07 11:44:57.648  INFO 8216 --- [    Test worker] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
 Hibernate: create table quizzes (id bigint not null, answers varchar(255), options binary(255), text varchar(255) not null, title varchar(255) not null, primary key (id))
 Hibernate: create sequence hibernate_sequence start with 1 increment by 1
-2020-10-02 12:39:24.407  INFO 12392 --- [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2020-10-02 12:39:24.418  INFO 12392 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2020-10-02 12:39:24.798  WARN 12392 --- [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2020-10-02 12:39:24.942  INFO 12392 --- [    Test worker] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2020-10-02 12:39:25.263  INFO 12392 --- [    Test worker] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 14 endpoint(s) beneath base path '/actuator'
-2020-10-02 12:39:25.327  INFO 12392 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8889 (http) with context path ''
-2020-10-02 12:39:25.330  INFO 12392 --- [    Test worker] engine.WebQuizEngine                     : Started WebQuizEngine in 5.856 seconds (JVM running for 6.908)
-2020-10-02 12:39:25.754  INFO 12392 --- [nio-8889-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2020-10-02 12:39:25.755  INFO 12392 --- [nio-8889-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2020-10-02 12:39:25.766  INFO 12392 --- [nio-8889-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 11 ms
-Hibernate: select questiondb0_.id as id1_0_, questiondb0_.answers as answers2_0_, questiondb0_.options as options3_0_, questiondb0_.text as text4_0_, questiondb0_.title as title5_0_ from quizzes questiondb0_
-?[1;31m
-Start test 2?[0m
-Hibernate: call next value for hibernate_sequence
-Hibernate: insert into quizzes (answers, options, text, title, id) values (?, ?, ?, ?, ?)
-?[1;31m
-Start test 3?[0m
-Hibernate: select questiondb0_.id as id1_0_0_, questiondb0_.answers as answers2_0_0_, questiondb0_.options as options3_0_0_, questiondb0_.text as text4_0_0_, questiondb0_.title as title5_0_0_ from quizzes questiondb0_ where questiondb0_.id=?
-?[1;31m
-Start test 4?[0m
-Hibernate: select questiondb0_.id as id1_0_0_, questiondb0_.answers as answers2_0_0_, questiondb0_.options as options3_0_0_, questiondb0_.text as text4_0_0_, questiondb0_.title as title5_0_0_ from quizzes questiondb0_ where questiondb0_.id=?
-?[1;31m
-Start test 5?[0m
-Hibernate: select questiondb0_.id as id1_0_, questiondb0_.answers as answers2_0_, questiondb0_.options as options3_0_, questiondb0_.text as text4_0_, questiondb0_.title as title5_0_ from quizzes questiondb0_
-?[1;31m
-Start test 6?[0m
-Hibernate: call next value for hibernate_sequence
-Hibernate: insert into quizzes (answers, options, text, title, id) values (?, ?, ?, ?, ?)
-?[1;31m
-Start test 7?[0m
-Hibernate: select questiondb0_.id as id1_0_0_, questiondb0_.answers as answers2_0_0_, questiondb0_.options as options3_0_0_, questiondb0_.text as text4_0_0_, questiondb0_.title as title5_0_0_ from quizzes questiondb0_ where questiondb0_.id=?
-?[1;31m
-Start test 8?[0m
-Hibernate: select questiondb0_.id as id1_0_0_, questiondb0_.answers as answers2_0_0_, questiondb0_.options as options3_0_0_, questiondb0_.text as text4_0_0_, questiondb0_.title as title5_0_0_ from quizzes questiondb0_ where questiondb0_.id=?
-?[1;31m
-Start test 9?[0m
-Hibernate: select questiondb0_.id as id1_0_, questiondb0_.answers as answers2_0_, questiondb0_.options as options3_0_, questiondb0_.text as text4_0_, questiondb0_.title as title5_0_ from quizzes questiondb0_
-?[1;31m
-Start test 10?[0m
-Hibernate: select questiondb0_.id as id1_0_0_, questiondb0_.answers as answers2_0_0_, questiondb0_.options as options3_0_0_, questiondb0_.text as text4_0_0_, questiondb0_.title as title5_0_0_ from quizzes questiondb0_ where questiondb0_.id=?
-?[1;31m
-Start test 11?[0m
-Hibernate: select questiondb0_.id as id1_0_0_, questiondb0_.answers as answers2_0_0_, questiondb0_.options as options3_0_0_, questiondb0_.text as text4_0_0_, questiondb0_.title as title5_0_0_ from quizzes questiondb0_ where questiondb0_.id=?
-?[1;31m
-Start test 12?[0m
-Hibernate: select questiondb0_.id as id1_0_0_, questiondb0_.answers as answers2_0_0_, questiondb0_.options as options3_0_0_, questiondb0_.text as text4_0_0_, questiondb0_.title as title5_0_0_ from quizzes questiondb0_ where questiondb0_.id=?
-?[1;31m
-Start test 13?[0m
-Hibernate: select questiondb0_.id as id1_0_0_, questiondb0_.answers as answers2_0_0_, questiondb0_.options as options3_0_0_, questiondb0_.text as text4_0_0_, questiondb0_.title as title5_0_0_ from quizzes questiondb0_ where questiondb0_.id=?
-?[1;31m
-Start test 14?[0m
-Hibernate: select questiondb0_.id as id1_0_0_, questiondb0_.answers as answers2_0_0_, questiondb0_.options as options3_0_0_, questiondb0_.text as text4_0_0_, questiondb0_.title as title5_0_0_ from quizzes questiondb0_ where questiondb0_.id=?
-?[1;31m
-Start test 15?[0m
-Hibernate: select questiondb0_.id as id1_0_0_, questiondb0_.answers as answers2_0_0_, questiondb0_.options as options3_0_0_, questiondb0_.text as text4_0_0_, questiondb0_.title as title5_0_0_ from quizzes questiondb0_ where questiondb0_.id=?
-?[1;31m
-Start test 16?[0m
-Hibernate: select questiondb0_.id as id1_0_0_, questiondb0_.answers as answers2_0_0_, questiondb0_.options as options3_0_0_, questiondb0_.text as text4_0_0_, questiondb0_.title as title5_0_0_ from quizzes questiondb0_ where questiondb0_.id=?
-?[1;31m
-Start test 17?[0m
-Hibernate: select questiondb0_.id as id1_0_0_, questiondb0_.answers as answers2_0_0_, questiondb0_.options as options3_0_0_, questiondb0_.text as text4_0_0_, questiondb0_.title as title5_0_0_ from quizzes questiondb0_ where questiondb0_.id=?
-?[1;31m
-Start test 18?[0m
-Hibernate: select questiondb0_.id as id1_0_, questiondb0_.answers as answers2_0_, questiondb0_.options as options3_0_, questiondb0_.text as text4_0_, questiondb0_.title as title5_0_ from quizzes questiondb0_
-?[1;31m
-Start test 19?[0m
-2020-10-02 12:39:26.971  INFO 12392 --- [       Thread-6] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
-2020-10-02 12:39:26.972  INFO 12392 --- [       Thread-6] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2020-10-02 12:39:26.975  INFO 12392 --- [       Thread-6] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2020-10-02 12:39:27.016  INFO 12392 --- [       Thread-6] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-
-  .   ____          _            __ _ _
- /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
-( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
- \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
-  '  |____| .__|_| |_|_| |_\__, | / / / /
- =========|_|==============|___/=/_/_/_/
- :: Spring Boot ::        (v2.2.2.RELEASE)
-
-2020-10-02 12:39:27.098  INFO 12392 --- [    Test worker] engine.WebQuizEngine                     : Starting WebQuizEngine on WIN10 with PID 12392 (started by Tomek in C:\JavaProjects\Web Quiz Engine\Web Quiz Engine\task)
-2020-10-02 12:39:27.098  INFO 12392 --- [    Test worker] engine.WebQuizEngine                     : No active profile set, falling back to default profiles: default
-2020-10-02 12:39:27.123  INFO 12392 --- [       Thread-6] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
-2020-10-02 12:39:27.128  INFO 12392 --- [       Thread-6] o.a.c.c.C.[Tomcat].[localhost].[/]       : Destroying Spring FrameworkServlet 'dispatcherServlet'
-2020-10-02 12:39:27.366  INFO 12392 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2020-10-02 12:39:27.374  INFO 12392 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 7ms. Found 1 JPA repository interfaces.
-2020-10-02 12:39:27.419  INFO 12392 --- [    Test worker] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2020-10-02 12:39:27.447  WARN 12392 --- [    Test worker] org.apache.tomcat.util.modeler.Registry  : The MBean registry cannot be disabled because it has already been initialised
-2020-10-02 12:39:27.453  INFO 12392 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8889 (http)
-2020-10-02 12:39:27.454  INFO 12392 --- [    Test worker] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2020-10-02 12:39:27.454  INFO 12392 --- [    Test worker] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.29]
-2020-10-02 12:39:27.486  INFO 12392 --- [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2020-10-02 12:39:27.486  INFO 12392 --- [    Test worker] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 385 ms
-2020-10-02 12:39:27.536  INFO 12392 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
-2020-10-02 12:39:27.546  INFO 12392 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
-2020-10-02 12:39:27.546  INFO 12392 --- [    Test worker] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:file:../quizdb'
-2020-10-02 12:39:27.622  INFO 12392 --- [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2020-10-02 12:39:27.631  INFO 12392 --- [    Test worker] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
-2020-10-02 12:39:27.687  INFO 12392 --- [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2020-10-02 12:39:27.687  INFO 12392 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2020-10-02 12:39:27.764  WARN 12392 --- [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2020-10-02 12:39:27.809  INFO 12392 --- [    Test worker] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2020-10-02 12:39:27.919  INFO 12392 --- [    Test worker] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 14 endpoint(s) beneath base path '/actuator'
-2020-10-02 12:39:27.943  INFO 12392 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8889 (http) with context path ''
-2020-10-02 12:39:27.944  INFO 12392 --- [    Test worker] engine.WebQuizEngine                     : Started WebQuizEngine in 0.871 seconds (JVM running for 9.522)
-?[1;31m
-Start test 20?[0m
-2020-10-02 12:39:27.951  INFO 12392 --- [nio-8889-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2020-10-02 12:39:27.952  INFO 12392 --- [nio-8889-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2020-10-02 12:39:27.955  INFO 12392 --- [nio-8889-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
-Hibernate: select questiondb0_.id as id1_0_, questiondb0_.answers as answers2_0_, questiondb0_.options as options3_0_, questiondb0_.text as text4_0_, questiondb0_.title as title5_0_ from quizzes questiondb0_
-?[1;31m
-Start test 21?[0m
-Hibernate: select questiondb0_.id as id1_0_0_, questiondb0_.answers as answers2_0_0_, questiondb0_.options as options3_0_0_, questiondb0_.text as text4_0_0_, questiondb0_.title as title5_0_0_ from quizzes questiondb0_ where questiondb0_.id=?
-?[1;31m
-Start test 22?[0m
-Hibernate: select questiondb0_.id as id1_0_0_, questiondb0_.answers as answers2_0_0_, questiondb0_.options as options3_0_0_, questiondb0_.text as text4_0_0_, questiondb0_.title as title5_0_0_ from quizzes questiondb0_ where questiondb0_.id=?
-?[1;31m
-Start test 23?[0m
-Hibernate: select questiondb0_.id as id1_0_0_, questiondb0_.answers as answers2_0_0_, questiondb0_.options as options3_0_0_, questiondb0_.text as text4_0_0_, questiondb0_.title as title5_0_0_ from quizzes questiondb0_ where questiondb0_.id=?
-?[1;31m
-Start test 24?[0m
-Hibernate: select questiondb0_.id as id1_0_0_, questiondb0_.answers as answers2_0_0_, questiondb0_.options as options3_0_0_, questiondb0_.text as text4_0_0_, questiondb0_.title as title5_0_0_ from quizzes questiondb0_ where questiondb0_.id=?
-?[1;31m
-Start test 25?[0m
-2020-10-02 12:39:28.008  WARN 12392 --- [nio-8889-exec-6] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Unexpected character ('"' (code 34)): was expecting comma to separate Object entries; nested exception is com.fasterxml.jackson.core.JsonParseException: Unexpected character ('"' (code 34)): was expecting comma to separate Object entries
- at [Source: (PushbackInputStream); line: 4, column: 4]]
-?[1;31m
-Start test 26?[0m
-2020-10-02 12:39:28.018  WARN 12392 --- [nio-8889-exec-7] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Unexpected character ('"' (code 34)): was expecting comma to separate Object entries; nested exception is com.fasterxml.jackson.core.JsonParseException: Unexpected character ('"' (code 34)): was expecting comma to separate Object entries
- at [Source: (PushbackInputStream); line: 5, column: 4]]
-?[1;31m
-Start test 27?[0m
-2020-10-02 12:39:28.025  WARN 12392 --- [nio-8889-exec-8] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Unexpected character ('"' (code 34)): was expecting comma to separate Object entries; nested exception is com.fasterxml.jackson.core.JsonParseException: Unexpected character ('"' (code 34)): was expecting comma to separate Object entries
- at [Source: (PushbackInputStream); line: 4, column: 4]]
-?[1;31m
-Start test 28?[0m
-2020-10-02 12:39:28.033  WARN 12392 --- [nio-8889-exec-9] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Unexpected character ('"' (code 34)): was expecting comma to separate Object entries; nested exception is com.fasterxml.jackson.core.JsonParseException: Unexpected character ('"' (code 34)): was expecting comma to separate Object entries
- at [Source: (PushbackInputStream); line: 5, column: 4]]
-?[1;31m
-Start test 29?[0m
-2020-10-02 12:39:28.077  WARN 12392 --- [io-8889-exec-10] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [0] in public engine.QuestionDBFormat engine.Quiz.addQuestion(engine.Question): [Field error in object 'question' on field 'options': rejected value [null]; codes [NotNull.question.options,NotNull.options,NotNull.[Ljava.lang.String;,NotNull]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [question.options,options]; arguments []; default message [options]]; default message [must not be null]] ]
-?[1;31m
-Start test 30?[0m
-2020-10-02 12:39:28.103  WARN 12392 --- [nio-8889-exec-1] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Unexpected character ('"' (code 34)): was expecting comma to separate Object entries; nested exception is com.fasterxml.jackson.core.JsonParseException: Unexpected character ('"' (code 34)): was expecting comma to separate Object entries
- at [Source: (PushbackInputStream); line: 5, column: 4]]
-?[1;31m
-Start test 31?[0m
-2020-10-02 12:39:28.111  WARN 12392 --- [nio-8889-exec-2] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Unexpected character ('"' (code 34)): was expecting comma to separate Object entries; nested exception is com.fasterxml.jackson.core.JsonParseException: Unexpected character ('"' (code 34)): was expecting comma to separate Object entries
- at [Source: (PushbackInputStream); line: 5, column: 4]]
-?[1;31m
-Start test 32?[0m
-Hibernate: call next value for hibernate_sequence
-Hibernate: insert into quizzes (answers, options, text, title, id) values (?, ?, ?, ?, ?)
-?[1;31m
-Start test 33?[0m
-Hibernate: select questiondb0_.id as id1_0_0_, questiondb0_.answers as answers2_0_0_, questiondb0_.options as options3_0_0_, questiondb0_.text as text4_0_0_, questiondb0_.title as title5_0_0_ from quizzes questiondb0_ where questiondb0_.id=?
-?[1;31m
-Start test 34?[0m
-Hibernate: select questiondb0_.id as id1_0_0_, questiondb0_.answers as answers2_0_0_, questiondb0_.options as options3_0_0_, questiondb0_.text as text4_0_0_, questiondb0_.title as title5_0_0_ from quizzes questiondb0_ where questiondb0_.id=?
-?[1;31m
-Start test 35?[0m
-Hibernate: select questiondb0_.id as id1_0_0_, questiondb0_.answers as answers2_0_0_, questiondb0_.options as options3_0_0_, questiondb0_.text as text4_0_0_, questiondb0_.title as title5_0_0_ from quizzes questiondb0_ where questiondb0_.id=?
-?[1;31m
-Start test 36?[0m
-Hibernate: select questiondb0_.id as id1_0_0_, questiondb0_.answers as answers2_0_0_, questiondb0_.options as options3_0_0_, questiondb0_.text as text4_0_0_, questiondb0_.title as title5_0_0_ from quizzes questiondb0_ where questiondb0_.id=?
-?[1;31m
-Start test 37?[0m
-Hibernate: select questiondb0_.id as id1_0_0_, questiondb0_.answers as answers2_0_0_, questiondb0_.options as options3_0_0_, questiondb0_.text as text4_0_0_, questiondb0_.title as title5_0_0_ from quizzes questiondb0_ where questiondb0_.id=?
-?[1;31m
-Start test 38?[0m
-Hibernate: select questiondb0_.id as id1_0_0_, questiondb0_.answers as answers2_0_0_, questiondb0_.options as options3_0_0_, questiondb0_.text as text4_0_0_, questiondb0_.title as title5_0_0_ from quizzes questiondb0_ where questiondb0_.id=?
-?[1;31m
-Start test 39?[0m
-Hibernate: select questiondb0_.id as id1_0_0_, questiondb0_.answers as answers2_0_0_, questiondb0_.options as options3_0_0_, questiondb0_.text as text4_0_0_, questiondb0_.title as title5_0_0_ from quizzes questiondb0_ where questiondb0_.id=?
-?[1;31m
-Start test 40?[0m
-Hibernate: select questiondb0_.id as id1_0_0_, questiondb0_.answers as answers2_0_0_, questiondb0_.options as options3_0_0_, questiondb0_.text as text4_0_0_, questiondb0_.title as title5_0_0_ from quizzes questiondb0_ where questiondb0_.id=?
-?[1;31m
-Start test 41?[0m
-Hibernate: select questiondb0_.id as id1_0_0_, questiondb0_.answers as answers2_0_0_, questiondb0_.options as options3_0_0_, questiondb0_.text as text4_0_0_, questiondb0_.title as title5_0_0_ from quizzes questiondb0_ where questiondb0_.id=?
-?[1;31m
-Start test 42?[0m
-Hibernate: select questiondb0_.id as id1_0_0_, questiondb0_.answers as answers2_0_0_, questiondb0_.options as options3_0_0_, questiondb0_.text as text4_0_0_, questiondb0_.title as title5_0_0_ from quizzes questiondb0_ where questiondb0_.id=?
-?[1;31m
-Start test 43?[0m
-Hibernate: select questiondb0_.id as id1_0_0_, questiondb0_.answers as answers2_0_0_, questiondb0_.options as options3_0_0_, questiondb0_.text as text4_0_0_, questiondb0_.title as title5_0_0_ from quizzes questiondb0_ where questiondb0_.id=?
-?[1;31m
-Start test 44?[0m
-Hibernate: select questiondb0_.id as id1_0_0_, questiondb0_.answers as answers2_0_0_, questiondb0_.options as options3_0_0_, questiondb0_.text as text4_0_0_, questiondb0_.title as title5_0_0_ from quizzes questiondb0_ where questiondb0_.id=?
-?[1;31m
-Start test 45?[0m
-Hibernate: select questiondb0_.id as id1_0_0_, questiondb0_.answers as answers2_0_0_, questiondb0_.options as options3_0_0_, questiondb0_.text as text4_0_0_, questiondb0_.title as title5_0_0_ from quizzes questiondb0_ where questiondb0_.id=?
-?[1;31m
-Start test 46?[0m
-Hibernate: select questiondb0_.id as id1_0_0_, questiondb0_.answers as answers2_0_0_, questiondb0_.options as options3_0_0_, questiondb0_.text as text4_0_0_, questiondb0_.title as title5_0_0_ from quizzes questiondb0_ where questiondb0_.id=?
-?[1;31m
-Start test 47?[0m
-Hibernate: select questiondb0_.id as id1_0_0_, questiondb0_.answers as answers2_0_0_, questiondb0_.options as options3_0_0_, questiondb0_.text as text4_0_0_, questiondb0_.title as title5_0_0_ from quizzes questiondb0_ where questiondb0_.id=?
-?[1;31m
-Start test 48?[0m
-Hibernate: select questiondb0_.id as id1_0_0_, questiondb0_.answers as answers2_0_0_, questiondb0_.options as options3_0_0_, questiondb0_.text as text4_0_0_, questiondb0_.title as title5_0_0_ from quizzes questiondb0_ where questiondb0_.id=?
-?[1;31m
-Start test 49?[0m
-Hibernate: select questiondb0_.id as id1_0_0_, questiondb0_.answers as answers2_0_0_, questiondb0_.options as options3_0_0_, questiondb0_.text as text4_0_0_, questiondb0_.title as title5_0_0_ from quizzes questiondb0_ where questiondb0_.id=?
-?[1;31m
-Start test 50?[0m
-Hibernate: call next value for hibernate_sequence
-Hibernate: insert into quizzes (answers, options, text, title, id) values (?, ?, ?, ?, ?)
-?[1;31m
-Start test 51?[0m
-Hibernate: select questiondb0_.id as id1_0_0_, questiondb0_.answers as answers2_0_0_, questiondb0_.options as options3_0_0_, questiondb0_.text as text4_0_0_, questiondb0_.title as title5_0_0_ from quizzes questiondb0_ where questiondb0_.id=?
-?[1;31m
-Start test 52?[0m
-Hibernate: select questiondb0_.id as id1_0_0_, questiondb0_.answers as answers2_0_0_, questiondb0_.options as options3_0_0_, questiondb0_.text as text4_0_0_, questiondb0_.title as title5_0_0_ from quizzes questiondb0_ where questiondb0_.id=?
-?[1;31m
-Start test 53?[0m
-Hibernate: select questiondb0_.id as id1_0_0_, questiondb0_.answers as answers2_0_0_, questiondb0_.options as options3_0_0_, questiondb0_.text as text4_0_0_, questiondb0_.title as title5_0_0_ from quizzes questiondb0_ where questiondb0_.id=?
-?[1;31m
-Start test 54?[0m
-Hibernate: select questiondb0_.id as id1_0_0_, questiondb0_.answers as answers2_0_0_, questiondb0_.options as options3_0_0_, questiondb0_.text as text4_0_0_, questiondb0_.title as title5_0_0_ from quizzes questiondb0_ where questiondb0_.id=?
-?[1;31m
-Start test 55?[0m
-Hibernate: select questiondb0_.id as id1_0_0_, questiondb0_.answers as answers2_0_0_, questiondb0_.options as options3_0_0_, questiondb0_.text as text4_0_0_, questiondb0_.title as title5_0_0_ from quizzes questiondb0_ where questiondb0_.id=?
-?[1;31m
-Start test 56?[0m
-Hibernate: select questiondb0_.id as id1_0_0_, questiondb0_.answers as answers2_0_0_, questiondb0_.options as options3_0_0_, questiondb0_.text as text4_0_0_, questiondb0_.title as title5_0_0_ from quizzes questiondb0_ where questiondb0_.id=?
-?[1;31m
-Start test 57?[0m
-Hibernate: select questiondb0_.id as id1_0_0_, questiondb0_.answers as answers2_0_0_, questiondb0_.options as options3_0_0_, questiondb0_.text as text4_0_0_, questiondb0_.title as title5_0_0_ from quizzes questiondb0_ where questiondb0_.id=?
-?[1;31m
-Start test 58?[0m
-Hibernate: select questiondb0_.id as id1_0_0_, questiondb0_.answers as answers2_0_0_, questiondb0_.options as options3_0_0_, questiondb0_.text as text4_0_0_, questiondb0_.title as title5_0_0_ from quizzes questiondb0_ where questiondb0_.id=?
-?[1;31m
-Start test 59?[0m
-Hibernate: select questiondb0_.id as id1_0_0_, questiondb0_.answers as answers2_0_0_, questiondb0_.options as options3_0_0_, questiondb0_.text as text4_0_0_, questiondb0_.title as title5_0_0_ from quizzes questiondb0_ where questiondb0_.id=?
-?[1;31m
-Start test 60?[0m
-Hibernate: select questiondb0_.id as id1_0_0_, questiondb0_.answers as answers2_0_0_, questiondb0_.options as options3_0_0_, questiondb0_.text as text4_0_0_, questiondb0_.title as title5_0_0_ from quizzes questiondb0_ where questiondb0_.id=?
-?[1;31m
-Start test 61?[0m
-Hibernate: select questiondb0_.id as id1_0_0_, questiondb0_.answers as answers2_0_0_, questiondb0_.options as options3_0_0_, questiondb0_.text as text4_0_0_, questiondb0_.title as title5_0_0_ from quizzes questiondb0_ where questiondb0_.id=?
-?[1;31m
-Start test 62?[0m
-Hibernate: select questiondb0_.id as id1_0_0_, questiondb0_.answers as answers2_0_0_, questiondb0_.options as options3_0_0_, questiondb0_.text as text4_0_0_, questiondb0_.title as title5_0_0_ from quizzes questiondb0_ where questiondb0_.id=?
-?[1;31m
-Start test 63?[0m
-Hibernate: select questiondb0_.id as id1_0_0_, questiondb0_.answers as answers2_0_0_, questiondb0_.options as options3_0_0_, questiondb0_.text as text4_0_0_, questiondb0_.title as title5_0_0_ from quizzes questiondb0_ where questiondb0_.id=?
-?[1;31m
-Start test 64?[0m
-Hibernate: select questiondb0_.id as id1_0_0_, questiondb0_.answers as answers2_0_0_, questiondb0_.options as options3_0_0_, questiondb0_.text as text4_0_0_, questiondb0_.title as title5_0_0_ from quizzes questiondb0_ where questiondb0_.id=?
-?[1;31m
-Start test 65?[0m
-Hibernate: select questiondb0_.id as id1_0_0_, questiondb0_.answers as answers2_0_0_, questiondb0_.options as options3_0_0_, questiondb0_.text as text4_0_0_, questiondb0_.title as title5_0_0_ from quizzes questiondb0_ where questiondb0_.id=?
-?[1;31m
-Start test 66?[0m
-Hibernate: select questiondb0_.id as id1_0_0_, questiondb0_.answers as answers2_0_0_, questiondb0_.options as options3_0_0_, questiondb0_.text as text4_0_0_, questiondb0_.title as title5_0_0_ from quizzes questiondb0_ where questiondb0_.id=?
-?[1;31m
-Start test 67?[0m
-Hibernate: select questiondb0_.id as id1_0_0_, questiondb0_.answers as answers2_0_0_, questiondb0_.options as options3_0_0_, questiondb0_.text as text4_0_0_, questiondb0_.title as title5_0_0_ from quizzes questiondb0_ where questiondb0_.id=?
-?[1;31m
-Start test 68?[0m
-Hibernate: call next value for hibernate_sequence
-Hibernate: insert into quizzes (answers, options, text, title, id) values (?, ?, ?, ?, ?)
-?[1;31m
-Start test 69?[0m
-Hibernate: select questiondb0_.id as id1_0_0_, questiondb0_.answers as answers2_0_0_, questiondb0_.options as options3_0_0_, questiondb0_.text as text4_0_0_, questiondb0_.title as title5_0_0_ from quizzes questiondb0_ where questiondb0_.id=?
-?[1;31m
-Start test 70?[0m
-Hibernate: select questiondb0_.id as id1_0_0_, questiondb0_.answers as answers2_0_0_, questiondb0_.options as options3_0_0_, questiondb0_.text as text4_0_0_, questiondb0_.title as title5_0_0_ from quizzes questiondb0_ where questiondb0_.id=?
-?[1;31m
-Start test 71?[0m
-Hibernate: select questiondb0_.id as id1_0_0_, questiondb0_.answers as answers2_0_0_, questiondb0_.options as options3_0_0_, questiondb0_.text as text4_0_0_, questiondb0_.title as title5_0_0_ from quizzes questiondb0_ where questiondb0_.id=?
-?[1;31m
-Start test 72?[0m
-Hibernate: select questiondb0_.id as id1_0_0_, questiondb0_.answers as answers2_0_0_, questiondb0_.options as options3_0_0_, questiondb0_.text as text4_0_0_, questiondb0_.title as title5_0_0_ from quizzes questiondb0_ where questiondb0_.id=?
-?[1;31m
-Start test 73?[0m
-Hibernate: select questiondb0_.id as id1_0_0_, questiondb0_.answers as answers2_0_0_, questiondb0_.options as options3_0_0_, questiondb0_.text as text4_0_0_, questiondb0_.title as title5_0_0_ from quizzes questiondb0_ where questiondb0_.id=?
-?[1;31m
-Start test 74?[0m
-Hibernate: select questiondb0_.id as id1_0_0_, questiondb0_.answers as answers2_0_0_, questiondb0_.options as options3_0_0_, questiondb0_.text as text4_0_0_, questiondb0_.title as title5_0_0_ from quizzes questiondb0_ where questiondb0_.id=?
-?[1;31m
-Start test 75?[0m
-Hibernate: select questiondb0_.id as id1_0_0_, questiondb0_.answers as answers2_0_0_, questiondb0_.options as options3_0_0_, questiondb0_.text as text4_0_0_, questiondb0_.title as title5_0_0_ from quizzes questiondb0_ where questiondb0_.id=?
-?[1;31m
-Start test 76?[0m
-Hibernate: select questiondb0_.id as id1_0_0_, questiondb0_.answers as answers2_0_0_, questiondb0_.options as options3_0_0_, questiondb0_.text as text4_0_0_, questiondb0_.title as title5_0_0_ from quizzes questiondb0_ where questiondb0_.id=?
-?[1;31m
-Start test 77?[0m
-Hibernate: select questiondb0_.id as id1_0_0_, questiondb0_.answers as answers2_0_0_, questiondb0_.options as options3_0_0_, questiondb0_.text as text4_0_0_, questiondb0_.title as title5_0_0_ from quizzes questiondb0_ where questiondb0_.id=?
-?[1;31m
-Start test 78?[0m
-Hibernate: select questiondb0_.id as id1_0_0_, questiondb0_.answers as answers2_0_0_, questiondb0_.options as options3_0_0_, questiondb0_.text as text4_0_0_, questiondb0_.title as title5_0_0_ from quizzes questiondb0_ where questiondb0_.id=?
-?[1;31m
-Start test 79?[0m
-Hibernate: select questiondb0_.id as id1_0_0_, questiondb0_.answers as answers2_0_0_, questiondb0_.options as options3_0_0_, questiondb0_.text as text4_0_0_, questiondb0_.title as title5_0_0_ from quizzes questiondb0_ where questiondb0_.id=?
-?[1;31m
-Start test 80?[0m
-Hibernate: select questiondb0_.id as id1_0_0_, questiondb0_.answers as answers2_0_0_, questiondb0_.options as options3_0_0_, questiondb0_.text as text4_0_0_, questiondb0_.title as title5_0_0_ from quizzes questiondb0_ where questiondb0_.id=?
-?[1;31m
-Start test 81?[0m
-Hibernate: select questiondb0_.id as id1_0_0_, questiondb0_.answers as answers2_0_0_, questiondb0_.options as options3_0_0_, questiondb0_.text as text4_0_0_, questiondb0_.title as title5_0_0_ from quizzes questiondb0_ where questiondb0_.id=?
-?[1;31m
-Start test 82?[0m
-Hibernate: select questiondb0_.id as id1_0_0_, questiondb0_.answers as answers2_0_0_, questiondb0_.options as options3_0_0_, questiondb0_.text as text4_0_0_, questiondb0_.title as title5_0_0_ from quizzes questiondb0_ where questiondb0_.id=?
-?[1;31m
-Start test 83?[0m
-Hibernate: select questiondb0_.id as id1_0_0_, questiondb0_.answers as answers2_0_0_, questiondb0_.options as options3_0_0_, questiondb0_.text as text4_0_0_, questiondb0_.title as title5_0_0_ from quizzes questiondb0_ where questiondb0_.id=?
-?[1;31m
-Start test 84?[0m
-Hibernate: select questiondb0_.id as id1_0_0_, questiondb0_.answers as answers2_0_0_, questiondb0_.options as options3_0_0_, questiondb0_.text as text4_0_0_, questiondb0_.title as title5_0_0_ from quizzes questiondb0_ where questiondb0_.id=?
-?[1;31m
-Start test 85?[0m
-Hibernate: select questiondb0_.id as id1_0_0_, questiondb0_.answers as answers2_0_0_, questiondb0_.options as options3_0_0_, questiondb0_.text as text4_0_0_, questiondb0_.title as title5_0_0_ from quizzes questiondb0_ where questiondb0_.id=?
-?[1;31m
-Start test 86?[0m
-Hibernate: call next value for hibernate_sequence
-Hibernate: insert into quizzes (answers, options, text, title, id) values (?, ?, ?, ?, ?)
-?[1;31m
-Start test 87?[0m
-Hibernate: select questiondb0_.id as id1_0_0_, questiondb0_.answers as answers2_0_0_, questiondb0_.options as options3_0_0_, questiondb0_.text as text4_0_0_, questiondb0_.title as title5_0_0_ from quizzes questiondb0_ where questiondb0_.id=?
-?[1;31m
-Start test 88?[0m
-Hibernate: select questiondb0_.id as id1_0_0_, questiondb0_.answers as answers2_0_0_, questiondb0_.options as options3_0_0_, questiondb0_.text as text4_0_0_, questiondb0_.title as title5_0_0_ from quizzes questiondb0_ where questiondb0_.id=?
-?[1;31m
-Start test 89?[0m
-Hibernate: select questiondb0_.id as id1_0_0_, questiondb0_.answers as answers2_0_0_, questiondb0_.options as options3_0_0_, questiondb0_.text as text4_0_0_, questiondb0_.title as title5_0_0_ from quizzes questiondb0_ where questiondb0_.id=?
-?[1;31m
-Start test 90?[0m
-Hibernate: select questiondb0_.id as id1_0_0_, questiondb0_.answers as answers2_0_0_, questiondb0_.options as options3_0_0_, questiondb0_.text as text4_0_0_, questiondb0_.title as title5_0_0_ from quizzes questiondb0_ where questiondb0_.id=?
-?[1;31m
-Start test 91?[0m
-Hibernate: select questiondb0_.id as id1_0_0_, questiondb0_.answers as answers2_0_0_, questiondb0_.options as options3_0_0_, questiondb0_.text as text4_0_0_, questiondb0_.title as title5_0_0_ from quizzes questiondb0_ where questiondb0_.id=?
-?[1;31m
-Start test 92?[0m
-Hibernate: select questiondb0_.id as id1_0_0_, questiondb0_.answers as answers2_0_0_, questiondb0_.options as options3_0_0_, questiondb0_.text as text4_0_0_, questiondb0_.title as title5_0_0_ from quizzes questiondb0_ where questiondb0_.id=?
-?[1;31m
-Start test 93?[0m
-Hibernate: select questiondb0_.id as id1_0_0_, questiondb0_.answers as answers2_0_0_, questiondb0_.options as options3_0_0_, questiondb0_.text as text4_0_0_, questiondb0_.title as title5_0_0_ from quizzes questiondb0_ where questiondb0_.id=?
-?[1;31m
-Start test 94?[0m
-Hibernate: select questiondb0_.id as id1_0_0_, questiondb0_.answers as answers2_0_0_, questiondb0_.options as options3_0_0_, questiondb0_.text as text4_0_0_, questiondb0_.title as title5_0_0_ from quizzes questiondb0_ where questiondb0_.id=?
-?[1;31m
-Start test 95?[0m
-Hibernate: select questiondb0_.id as id1_0_0_, questiondb0_.answers as answers2_0_0_, questiondb0_.options as options3_0_0_, questiondb0_.text as text4_0_0_, questiondb0_.title as title5_0_0_ from quizzes questiondb0_ where questiondb0_.id=?
-?[1;31m
-Start test 96?[0m
-Hibernate: select questiondb0_.id as id1_0_0_, questiondb0_.answers as answers2_0_0_, questiondb0_.options as options3_0_0_, questiondb0_.text as text4_0_0_, questiondb0_.title as title5_0_0_ from quizzes questiondb0_ where questiondb0_.id=?
-?[1;31m
-Start test 97?[0m
-Hibernate: select questiondb0_.id as id1_0_0_, questiondb0_.answers as answers2_0_0_, questiondb0_.options as options3_0_0_, questiondb0_.text as text4_0_0_, questiondb0_.title as title5_0_0_ from quizzes questiondb0_ where questiondb0_.id=?
-?[1;31m
-Start test 98?[0m
-Hibernate: select questiondb0_.id as id1_0_0_, questiondb0_.answers as answers2_0_0_, questiondb0_.options as options3_0_0_, questiondb0_.text as text4_0_0_, questiondb0_.title as title5_0_0_ from quizzes questiondb0_ where questiondb0_.id=?
-?[1;31m
-Start test 99?[0m
-Hibernate: select questiondb0_.id as id1_0_0_, questiondb0_.answers as answers2_0_0_, questiondb0_.options as options3_0_0_, questiondb0_.text as text4_0_0_, questiondb0_.title as title5_0_0_ from quizzes questiondb0_ where questiondb0_.id=?
-?[1;31m
-Start test 100?[0m
-Hibernate: select questiondb0_.id as id1_0_0_, questiondb0_.answers as answers2_0_0_, questiondb0_.options as options3_0_0_, questiondb0_.text as text4_0_0_, questiondb0_.title as title5_0_0_ from quizzes questiondb0_ where questiondb0_.id=?
-?[1;31m
-Start test 101?[0m
-Hibernate: select questiondb0_.id as id1_0_0_, questiondb0_.answers as answers2_0_0_, questiondb0_.options as options3_0_0_, questiondb0_.text as text4_0_0_, questiondb0_.title as title5_0_0_ from quizzes questiondb0_ where questiondb0_.id=?
-?[1;31m
-Start test 102?[0m
-Hibernate: select questiondb0_.id as id1_0_0_, questiondb0_.answers as answers2_0_0_, questiondb0_.options as options3_0_0_, questiondb0_.text as text4_0_0_, questiondb0_.title as title5_0_0_ from quizzes questiondb0_ where questiondb0_.id=?
-?[1;31m
-Start test 103?[0m
-Hibernate: select questiondb0_.id as id1_0_0_, questiondb0_.answers as answers2_0_0_, questiondb0_.options as options3_0_0_, questiondb0_.text as text4_0_0_, questiondb0_.title as title5_0_0_ from quizzes questiondb0_ where questiondb0_.id=?
-?[1;31m
-Start test 104?[0m
-Hibernate: call next value for hibernate_sequence
-Hibernate: insert into quizzes (answers, options, text, title, id) values (?, ?, ?, ?, ?)
-?[1;31m
-Start test 105?[0m
-Hibernate: select questiondb0_.id as id1_0_0_, questiondb0_.answers as answers2_0_0_, questiondb0_.options as options3_0_0_, questiondb0_.text as text4_0_0_, questiondb0_.title as title5_0_0_ from quizzes questiondb0_ where questiondb0_.id=?
-?[1;31m
-Start test 106?[0m
-Hibernate: select questiondb0_.id as id1_0_0_, questiondb0_.answers as answers2_0_0_, questiondb0_.options as options3_0_0_, questiondb0_.text as text4_0_0_, questiondb0_.title as title5_0_0_ from quizzes questiondb0_ where questiondb0_.id=?
-?[1;31m
-Start test 107?[0m
-Hibernate: select questiondb0_.id as id1_0_0_, questiondb0_.answers as answers2_0_0_, questiondb0_.options as options3_0_0_, questiondb0_.text as text4_0_0_, questiondb0_.title as title5_0_0_ from quizzes questiondb0_ where questiondb0_.id=?
-?[1;31m
-Start test 108?[0m
-Hibernate: select questiondb0_.id as id1_0_0_, questiondb0_.answers as answers2_0_0_, questiondb0_.options as options3_0_0_, questiondb0_.text as text4_0_0_, questiondb0_.title as title5_0_0_ from quizzes questiondb0_ where questiondb0_.id=?
-?[1;31m
-Start test 109?[0m
-Hibernate: select questiondb0_.id as id1_0_0_, questiondb0_.answers as answers2_0_0_, questiondb0_.options as options3_0_0_, questiondb0_.text as text4_0_0_, questiondb0_.title as title5_0_0_ from quizzes questiondb0_ where questiondb0_.id=?
-?[1;31m
-Start test 110?[0m
-Hibernate: select questiondb0_.id as id1_0_0_, questiondb0_.answers as answers2_0_0_, questiondb0_.options as options3_0_0_, questiondb0_.text as text4_0_0_, questiondb0_.title as title5_0_0_ from quizzes questiondb0_ where questiondb0_.id=?
-?[1;31m
-Start test 111?[0m
-Hibernate: select questiondb0_.id as id1_0_0_, questiondb0_.answers as answers2_0_0_, questiondb0_.options as options3_0_0_, questiondb0_.text as text4_0_0_, questiondb0_.title as title5_0_0_ from quizzes questiondb0_ where questiondb0_.id=?
-?[1;31m
-Start test 112?[0m
-Hibernate: select questiondb0_.id as id1_0_0_, questiondb0_.answers as answers2_0_0_, questiondb0_.options as options3_0_0_, questiondb0_.text as text4_0_0_, questiondb0_.title as title5_0_0_ from quizzes questiondb0_ where questiondb0_.id=?
-?[1;31m
-Start test 113?[0m
-Hibernate: select questiondb0_.id as id1_0_0_, questiondb0_.answers as answers2_0_0_, questiondb0_.options as options3_0_0_, questiondb0_.text as text4_0_0_, questiondb0_.title as title5_0_0_ from quizzes questiondb0_ where questiondb0_.id=?
-?[1;31m
-Start test 114?[0m
-Hibernate: select questiondb0_.id as id1_0_0_, questiondb0_.answers as answers2_0_0_, questiondb0_.options as options3_0_0_, questiondb0_.text as text4_0_0_, questiondb0_.title as title5_0_0_ from quizzes questiondb0_ where questiondb0_.id=?
-?[1;31m
-Start test 115?[0m
-Hibernate: select questiondb0_.id as id1_0_0_, questiondb0_.answers as answers2_0_0_, questiondb0_.options as options3_0_0_, questiondb0_.text as text4_0_0_, questiondb0_.title as title5_0_0_ from quizzes questiondb0_ where questiondb0_.id=?
-?[1;31m
-Start test 116?[0m
-Hibernate: select questiondb0_.id as id1_0_0_, questiondb0_.answers as answers2_0_0_, questiondb0_.options as options3_0_0_, questiondb0_.text as text4_0_0_, questiondb0_.title as title5_0_0_ from quizzes questiondb0_ where questiondb0_.id=?
-?[1;31m
-Start test 117?[0m
-Hibernate: select questiondb0_.id as id1_0_0_, questiondb0_.answers as answers2_0_0_, questiondb0_.options as options3_0_0_, questiondb0_.text as text4_0_0_, questiondb0_.title as title5_0_0_ from quizzes questiondb0_ where questiondb0_.id=?
-?[1;31m
-Start test 118?[0m
-Hibernate: select questiondb0_.id as id1_0_0_, questiondb0_.answers as answers2_0_0_, questiondb0_.options as options3_0_0_, questiondb0_.text as text4_0_0_, questiondb0_.title as title5_0_0_ from quizzes questiondb0_ where questiondb0_.id=?
-?[1;31m
-Start test 119?[0m
-Hibernate: select questiondb0_.id as id1_0_0_, questiondb0_.answers as answers2_0_0_, questiondb0_.options as options3_0_0_, questiondb0_.text as text4_0_0_, questiondb0_.title as title5_0_0_ from quizzes questiondb0_ where questiondb0_.id=?
-?[1;31m
-Start test 120?[0m
-Hibernate: select questiondb0_.id as id1_0_0_, questiondb0_.answers as answers2_0_0_, questiondb0_.options as options3_0_0_, questiondb0_.text as text4_0_0_, questiondb0_.title as title5_0_0_ from quizzes questiondb0_ where questiondb0_.id=?
-?[1;31m
-Start test 121?[0m
-Hibernate: select questiondb0_.id as id1_0_0_, questiondb0_.answers as answers2_0_0_, questiondb0_.options as options3_0_0_, questiondb0_.text as text4_0_0_, questiondb0_.title as title5_0_0_ from quizzes questiondb0_ where questiondb0_.id=?
-?[1;31m
-Start test 122?[0m
-Hibernate: select questiondb0_.id as id1_0_, questiondb0_.answers as answers2_0_, questiondb0_.options as options3_0_, questiondb0_.text as text4_0_, questiondb0_.title as title5_0_ from quizzes questiondb0_
-?[1;31m
-Start test 123?[0m
-2020-10-02 12:39:29.224  INFO 12392 --- [       Thread-9] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
-2020-10-02 12:39:29.225  INFO 12392 --- [       Thread-9] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2020-10-02 12:39:29.226  INFO 12392 --- [       Thread-9] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
-2020-10-02 12:39:29.260  INFO 12392 --- [       Thread-9] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.
-
-  .   ____          _            __ _ _
- /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
-( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
- \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
-  '  |____| .__|_| |_|_| |_\__, | / / / /
- =========|_|==============|___/=/_/_/_/
- :: Spring Boot ::        (v2.2.2.RELEASE)
-
-2020-10-02 12:39:29.349  INFO 12392 --- [    Test worker] engine.WebQuizEngine                     : Starting WebQuizEngine on WIN10 with PID 12392 (started by Tomek in C:\JavaProjects\Web Quiz Engine\Web Quiz Engine\task)
-2020-10-02 12:39:29.350  INFO 12392 --- [    Test worker] engine.WebQuizEngine                     : No active profile set, falling back to default profiles: default
-2020-10-02 12:39:29.370  INFO 12392 --- [       Thread-9] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
-2020-10-02 12:39:29.374  INFO 12392 --- [       Thread-9] o.a.c.c.C.[Tomcat].[localhost].[/]       : Destroying Spring FrameworkServlet 'dispatcherServlet'
-2020-10-02 12:39:29.595  INFO 12392 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2020-10-02 12:39:29.602  INFO 12392 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 6ms. Found 1 JPA repository interfaces.
-2020-10-02 12:39:29.644  INFO 12392 --- [    Test worker] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2020-10-02 12:39:29.667  WARN 12392 --- [    Test worker] org.apache.tomcat.util.modeler.Registry  : The MBean registry cannot be disabled because it has already been initialised
-2020-10-02 12:39:29.673  INFO 12392 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8889 (http)
-2020-10-02 12:39:29.674  INFO 12392 --- [    Test worker] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2020-10-02 12:39:29.674  INFO 12392 --- [    Test worker] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.29]
-2020-10-02 12:39:29.707  INFO 12392 --- [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2020-10-02 12:39:29.708  INFO 12392 --- [    Test worker] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 355 ms
-2020-10-02 12:39:29.739  INFO 12392 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Starting...
-2020-10-02 12:39:29.745  INFO 12392 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Start completed.
-2020-10-02 12:39:29.745  INFO 12392 --- [    Test worker] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:file:../quizdb'
-2020-10-02 12:39:29.803  INFO 12392 --- [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2020-10-02 12:39:29.809  INFO 12392 --- [    Test worker] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
-2020-10-02 12:39:29.852  INFO 12392 --- [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2020-10-02 12:39:29.852  INFO 12392 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2020-10-02 12:39:29.904  WARN 12392 --- [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2020-10-02 12:39:29.933  INFO 12392 --- [    Test worker] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2020-10-02 12:39:30.007  INFO 12392 --- [    Test worker] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 14 endpoint(s) beneath base path '/actuator'
-2020-10-02 12:39:30.023  INFO 12392 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8889 (http) with context path ''
-2020-10-02 12:39:30.023  INFO 12392 --- [    Test worker] engine.WebQuizEngine                     : Started WebQuizEngine in 0.698 seconds (JVM running for 11.602)
-?[1;31m
-Start test 124?[0m
-2020-10-02 12:39:30.029  INFO 12392 --- [nio-8889-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2020-10-02 12:39:30.029  INFO 12392 --- [nio-8889-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2020-10-02 12:39:30.032  INFO 12392 --- [nio-8889-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
-Hibernate: select questiondb0_.id as id1_0_, questiondb0_.answers as answers2_0_, questiondb0_.options as options3_0_, questiondb0_.text as text4_0_, questiondb0_.title as title5_0_ from quizzes questiondb0_
-?[1;31m
-Start test 125?[0m
-Hibernate: select questiondb0_.id as id1_0_0_, questiondb0_.answers as answers2_0_0_, questiondb0_.options as options3_0_0_, questiondb0_.text as text4_0_0_, questiondb0_.title as title5_0_0_ from quizzes questiondb0_ where questiondb0_.id=?
-?[1;31m
-Start test 126?[0m
-Hibernate: select questiondb0_.id as id1_0_0_, questiondb0_.answers as answers2_0_0_, questiondb0_.options as options3_0_0_, questiondb0_.text as text4_0_0_, questiondb0_.title as title5_0_0_ from quizzes questiondb0_ where questiondb0_.id=?
-?[1;31m
-Start test 127?[0m
-Hibernate: select questiondb0_.id as id1_0_0_, questiondb0_.answers as answers2_0_0_, questiondb0_.options as options3_0_0_, questiondb0_.text as text4_0_0_, questiondb0_.title as title5_0_0_ from quizzes questiondb0_ where questiondb0_.id=?
-?[1;31m
-Start test 128?[0m
-Hibernate: select questiondb0_.id as id1_0_0_, questiondb0_.answers as answers2_0_0_, questiondb0_.options as options3_0_0_, questiondb0_.text as text4_0_0_, questiondb0_.title as title5_0_0_ from quizzes questiondb0_ where questiondb0_.id=?
+2020-10-07 11:44:58.461  INFO 8216 --- [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-10-07 11:44:58.469  INFO 8216 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-10-07 11:44:58.778  WARN 8216 --- [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-10-07 11:44:58.915  INFO 8216 --- [    Test worker] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-10-07 11:44:59.216  INFO 8216 --- [    Test worker] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 14 endpoint(s) beneath base path '/actuator'
+2020-10-07 11:44:59.284  INFO 8216 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8889 (http) with context path ''
+2020-10-07 11:44:59.287  INFO 8216 --- [    Test worker] engine.WebQuizEngine                     : Started WebQuizEngine in 5.103 seconds (JVM running for 5.859)
+2020-10-07 11:44:59.647  INFO 8216 --- [nio-8889-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-10-07 11:44:59.648  INFO 8216 --- [nio-8889-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-10-07 11:44:59.657  INFO 8216 --- [nio-8889-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 9 ms
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

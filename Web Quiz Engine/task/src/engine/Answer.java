@@ -12,10 +12,10 @@ import java.util.Arrays;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Answer {
-    private int[] answer;
+    private int[] answers;
 
     public int length() {
-        return answer.length;
+        return answers.length;
     }
 
     @Override
@@ -28,9 +28,9 @@ public class Answer {
 
         if (this.length() != answer.length()) return false;
 
-        for (int curAns : answer.getAnswer()) {
+        for (int curAns : answer.getAnswers()) {
             boolean isThere = false;
-            for (int cThisAns : this.getAnswer()) {
+            for (int cThisAns : this.getAnswers()) {
                 if (cThisAns == curAns) {
                     isThere = true;
                     break;
@@ -40,9 +40,9 @@ public class Answer {
             if (!isThere) return false;
         }
 
-        for (int cThisAns : this.getAnswer()) {
+        for (int cThisAns : this.getAnswers()) {
             boolean isThere = false;
-            for (int curAns : answer.getAnswer()) {
+            for (int curAns : answer.getAnswers()) {
                 if (cThisAns == curAns) {
                     isThere = true;
                     break;
@@ -57,6 +57,6 @@ public class Answer {
 
     @Override
     public String toString() {
-        return Arrays.toString(answer);
+        return Arrays.toString(answers);
     }
 }

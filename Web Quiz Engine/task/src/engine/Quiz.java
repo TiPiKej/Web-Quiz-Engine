@@ -5,8 +5,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.HashMap;
 import java.util.List;
-import java.util.Optional;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api/quizzes")
@@ -22,7 +23,9 @@ public class Quiz {
 
     @PostMapping
     public QuestionDBFormat addQuestion(@Valid @RequestBody Question question) {
-        if (question.getAnswer() == null) question.setAnswer(new int[0]);
+        if (question.getAnswers() == null) {
+            question.setAnswers(new int[0]);
+        }
 
         return quizRepository.save(new QuestionDBFormat(question));
     }
@@ -35,10 +38,17 @@ public class Quiz {
     }
 
     @PostMapping(path = "/{id}/solve")
-    public AnswerRes solveQuestion(@PathVariable(value = "id") Long questionId, @RequestBody Answer answer) {
-        Answer correctAnswer = getQuestion(questionId).getAnswer();
+    public Map<String, String> solveQuestion(@PathVariable(value = "id") Long questionId, @RequestBody Answer answer) {
+        Map<String, String> resAns = new HashMap<>();
+
+        Answer correctAnswer = getQuestion(questionId).getAnswers();
         if (correctAnswer == null) correctAnswer = new Answer(new int[0]);
 
-        return new AnswerRes(correctAnswer.equals(answer));
+        boolean success = correctAnswer.equals(answer);
+
+        resAns.put("success", Boolean.toString(success));
+        resAns.put("feedback", success ? "Congratulations, you're right!" : "Wrong answer! Please, try again.");
+
+        return resAns;
     }
 }

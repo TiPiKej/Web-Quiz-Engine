@@ -6,8 +6,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.Arrays;
-import java.util.List;
 
 @Getter
 @Setter
@@ -36,6 +34,6 @@ public class QuestionDBFormat {
         this.title = q.getTitle();
         this.text = q.getText();
         this.options = q.getOptions();
-        this.answers = q.getAnswer().toString();
+        this.answers = q.getAnswers().toString();
     }
 }

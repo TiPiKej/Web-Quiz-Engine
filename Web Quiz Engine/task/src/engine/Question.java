@@ -1,24 +1,18 @@
 package engine;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 @Getter
 @Setter
 @NoArgsConstructor
+@AllArgsConstructor
 public class Question {
     private Long id;
 
@@ -34,18 +28,18 @@ public class Question {
 
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     @Setter(AccessLevel.NONE)
-    private Answer answer;
+    private Answer answers;
 
     public Question(QuestionDBFormat question) {
         this.id = question.getId();
         this.title = question.getTitle();
         this.text = question.getText();
         this.options = question.getOptions();
-        this.setAnswer(parseAnswers(question.getAnswers()));
+        this.setAnswers(parseAnswers(question.getAnswers()));
     }
 
-    public void setAnswer(int[] answer) {
-        this.answer = new Answer(answer);
+    public void setAnswers(int[] answers) {
+        this.answers = new Answer(answers);
     }
 
     public static int[] parseAnswers(String answersStr) {
