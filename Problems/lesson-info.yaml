@@ -5,3 +5,4 @@ content:
 - Arithmetic expression
 - Comparing strings ignoring whitespaces
 - Interval
+- Count elements of an array in another one
