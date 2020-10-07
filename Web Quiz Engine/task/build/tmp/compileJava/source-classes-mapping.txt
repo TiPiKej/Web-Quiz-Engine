@@ -1,22 +1,29 @@
 engine/UserRepository.java
  engine.UserRepository
-engine/Answer.java
- engine.Answer
-engine/SpringSecurityConfig.java
- engine.SpringSecurityConfig
+engine/MyUserDetailsService.java
+ engine.MyUserDetailsService
+engine/UserController.java
+ engine.UserController
+ engine.UserController$UsernameIsTakenException
 engine/QuestionDBFormat.java
  engine.QuestionDBFormat
 engine/WebQuizEngine.java
  engine.WebQuizEngine
 engine/User.java
  engine.User
+engine/Quiz.java
+ engine.Quiz
+engine/Answer.java
+ engine.Answer
+engine/MyUserPrincipal.java
+ engine.MyUserPrincipal
 engine/QuizRepository.java
  engine.QuizRepository
 engine/NoQuizException.java
  engine.NoQuizException
-engine/AuthenticationEntryPoint.java
- engine.AuthenticationEntryPoint
 engine/Question.java
  engine.Question
-engine/Quiz.java
- engine.Quiz
+engine/AuthenticationEntryPointImpl.java
+ engine.AuthenticationEntryPointImpl
+engine/WebSecurityConfig.java
+ engine.WebSecurityConfig
