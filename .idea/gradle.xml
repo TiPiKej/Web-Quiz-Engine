@@ -11,7 +11,9 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/Problems/Account" />
             <option value="$PROJECT_DIR$/Problems/Arithmetic expression" />
+            <option value="$PROJECT_DIR$/Problems/Celsius to Fahrenheit" />
             <option value="$PROJECT_DIR$/Problems/Comparing strings ignoring whitespaces" />
             <option value="$PROJECT_DIR$/Problems/Complex" />
             <option value="$PROJECT_DIR$/Problems/Count elements of an array in another one" />
